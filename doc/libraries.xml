@@ -1098,7 +1098,7 @@
     <key>fiber</key>
     <library_path>libs/fiber/</library_path>
     <boost-version>1.62.0</boost-version>
-    <update-version>master</update-version>
+    <update-version>1.63.0</update-version>
     <name>Fiber</name>
     <authors>Oliver Kowalke</authors>
     <maintainers>Oliver Kowalke &lt;oliver.kowalke -at- gmail.com&gt;</maintainers>
@@ -2533,6 +2533,18 @@
     <category>Function-objects</category>
   </library>
   <library>
+    <key>poly_collection</key>
+    <library_path>libs/poly_collection/</library_path>
+    <boost-version>unreleased</boost-version>
+    <update-version>develop</update-version>
+    <name>PolyCollection</name>
+    <authors>Joaqu&#237;n M L&#243;pez Mu&#241;oz</authors>
+    <maintainers>Joaquin M Lopez Munoz &lt;joaquin.lopezmunoz -at- gmail.com&gt;</maintainers>
+    <description>Fast containers of polymorphic objects.</description>
+    <documentation>libs/poly_collection/</documentation>
+    <category>Containers</category>
+  </library>
+  <library>
     <key>polygon</key>
     <library_path>libs/polygon/</library_path>
     <boost-version>1.44.0</boost-version>
@@ -2632,8 +2644,7 @@
   <library>
     <key>process</key>
     <library_path>libs/process/</library_path>
-    <boost-version>unreleased</boost-version>
-    <update-version>master</update-version>
+    <boost-version>1.64.0</boost-version>
     <name>Process</name>
     <authors>Merino Vidal</authors>
     <authors>Ilya Sokolov</authors>
@@ -3247,6 +3258,19 @@
     <documentation>libs/spirit/</documentation>
     <category>Parsing</category>
     <category>String</category>
+  </library>
+  <library>
+    <key>stacktrace</key>
+    <library_path>libs/stacktrace/</library_path>
+    <boost-version>unreleased</boost-version>
+    <update-version>master</update-version>
+    <name>Stacktrace</name>
+    <authors>Antony Polukhin</authors>
+    <maintainers>Antony Polukhin &lt;antoshkka -at- gmail.com&gt;</maintainers>
+    <description>Gather, store, copy and print backtraces.</description>
+    <documentation>libs/stacktrace/</documentation>
+    <category>Correctness</category>
+    <category>System</category>
   </library>
   <library>
     <key>statechart</key>
