@@ -36,21 +36,33 @@
 * [phrase library..[@/libs/context/ Context]:]
     * call/cc supports ucontext-API (swapcontext)
     * call/cc supports Windows-Fiber-API
-    * call/cc supports on demand growing (segmented/split) stacks 
+    * call/cc supports on demand growing (segmented/split) stacks
+    * [ticket 12719]: context test cases and examples segmentation fault when built with mingw-w64 toolchain 
     * #52: Failing to build callcc test with g++-4.9
 
 * [phrase library..[@/libs/coroutine2/ Coroutine2]:]
     * supports ucontext-API (swapcontext)
     * supports Windows-Fiber-API
+    * [ticket 13064]: different behavior coroutine and coroutine2 
 
  * [phrase library..[@/libs/fiber/ Fiber]:] 
-    * hardware transaction memory (Intel TSX) supported
+    * hardware transactional memory (Intel TSX) supported
     * NUMA supported
     * ucontext-API (swapcontext) supported
     * Windows-Fiber-API supported
+    * on demand growing stacks
     * #121: failing to build static lib with GCC 4.8 and C++11
     * #123: assertion failure in schedule_from_remote
+    * #125: erratic crashes in testsuite
     * #126: incorrect std::memory_order value in compare_exchange_strong?
+
+* [phrase library..[@/libs/program_options/ Program Options]:]
+  * Parsing of implicit options can now use the value from the next token. Since 1.59,
+    unless the value of implicit option was specified in the same token as the option
+    itself, the implicit value was used. That proved inconvenient, and now we again
+    check the next token and use it as value if it's not an option itself.
+    ([@https://github.com/boostorg/program_options/issues/25 #25])
+
 
 [/ TODO: These libraries always use the same message, referring to their
    individual release notes. So check if they apply before the beta:

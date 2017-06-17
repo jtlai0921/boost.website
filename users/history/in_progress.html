@@ -73,6 +73,12 @@
             </li>
             <li>
               <div>
+                <a href="https://svn.boost.org/trac/boost/ticket/12719">#12719</a>: context test cases and examples segmentation fault when
+                built with mingw-w64 toolchain
+              </div>
+            </li>
+            <li>
+              <div>
                 #52: Failing to build callcc test with g++-4.9
               </div>
             </li>
@@ -93,6 +99,11 @@
                 supports Windows-Fiber-API
               </div>
             </li>
+            <li>
+              <div>
+                <a href="https://svn.boost.org/trac/boost/ticket/13064">#13064</a>: different behavior coroutine and coroutine2
+              </div>
+            </li>
           </ul>
         </div>
       </li>
@@ -102,7 +113,7 @@
           <ul>
             <li>
               <div>
-                hardware transaction memory (Intel TSX) supported
+                hardware transactional memory (Intel TSX) supported
               </div>
             </li>
             <li>
@@ -122,6 +133,11 @@
             </li>
             <li>
               <div>
+                on demand growing stacks
+              </div>
+            </li>
+            <li>
+              <div>
                 #121: failing to build static lib with GCC 4.8 and C++11
               </div>
             </li>
@@ -132,7 +148,28 @@
             </li>
             <li>
               <div>
+                #125: erratic crashes in testsuite
+              </div>
+            </li>
+            <li>
+              <div>
                 #126: incorrect std::memory_order value in compare_exchange_strong?
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span class="library"><a href="/doc/libs/master/libs/program_options/">Program Options</a>:</span>
+          <ul>
+            <li>
+              <div>
+                Parsing of implicit options can now use the value from the next token.
+                Since 1.59, unless the value of implicit option was specified in
+                the same token as the option itself, the implicit value was used.
+                That proved inconvenient, and now we again check the next token and
+                use it as value if it's not an option itself. (<a href="https://github.com/boostorg/program_options/issues/25">#25</a>)
               </div>
             </li>
           </ul>
