@@ -3,6 +3,7 @@
     [source-mode c++]
     [purpose
         New Libraries:
+        PolyCollection.
         Updated Libraries:
         [/ Please don't add updated libraries yet, it
            can create unnecessary merge conflicts.]
@@ -16,22 +17,16 @@
 
 [section New Libraries]
 
-[/ Example:
-* [phrase library..[@/libs/accumulators/ Accumulators]:] Framework for
-  incremental calculation, and collection of statistical accumulators, from Eric Niebler.
-]
+* [phrase library..[@/libs/poly_collection/ PolyCollection]:]
+  Fast containers of polymorphic objects, from
+  Joaqu'''&#237;'''n M L'''&#243;'''pez Mu'''&#241;'''oz.
 
-* /TODO/
+* [phrase library..[@/libs/stacktrace/ Stacktrace]:]
+  Gather, store, copy and print backtraces, from Antony Polukhin.
 
 [endsect]
 
 [section Updated Libraries]
-
-[/ Example:
-* [phrase library..[@/libs/interprocess/ Interprocess]:]
-  * Added anonymous shared memory for UNIX systems.
-  * `shared_ptr` is movable and supports aliasing ([ticket 1234]).
-]
 
 * [phrase library..[@/libs/context/ Context]:]
     * call/cc supports ucontext-API (swapcontext)
@@ -39,6 +34,19 @@
     * call/cc supports on demand growing (segmented/split) stacks
     * [ticket 12719]: context test cases and examples segmentation fault when built with mingw-w64 toolchain 
     * #52: Failing to build callcc test with g++-4.9
+
+* [phrase library..[@/libs/config/ Config]:]
+  * Added `BOOST_NO_CXX11_POINTER_TRAITS`, `BOOST_NO_CXX17_FOLD_EXPRESSIONS`,
+    `BOOST_NO_CXX17_INLINE_VARIABLES`, `BOOST_NO_CXX17_STRUCTURED_BINDINGS`
+    defect detection.
+  * BOOST_FALLTHROUGH support for GCC 7 and above. (Glen Fernandes)
+
+* [phrase library..[@/libs/core/ Core]:]
+    * Implemented `pointer_traits` for C++03 and higher, that implements
+      [@http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0653r0.html P0653r0]
+      (Glen Fernandes). This implementation is now used by Align, Circular
+      Buffer, Fiber, Geometry, among other libraries.
+    * Added `BOOST_TEST_GT` and `BOOST_TEST_GE` to Lightweight Test.
 
 * [phrase library..[@/libs/coroutine2/ Coroutine2]:]
     * supports ucontext-API (swapcontext)
@@ -56,6 +64,23 @@
     * #125: erratic crashes in testsuite
     * #126: incorrect std::memory_order value in compare_exchange_strong?
 
+* [phrase library..[@/libs/functional/hash/ Hash]:]
+  * Support for `char16_t`, `char32_t`, `u16string`, `u32string`.
+
+* [phrase library..[@/libs/log/ Log]:]
+  * General changes:
+    * Improved compatibility with Solaris.
+  * See [@/libs/log/doc/html/log/changelog.html changelog] for more details.
+
+* [phrase library..[@/libs/predef/ Predef]:]
+  * Fix Intel C/C++ version 9999 detection to be 12.1.0.
+  * Addition of `BOOST_PREDEF_WORKAROUND` and `BOOST_PREDEF_TESTED_AT` macros
+    for defect workarounds and detection.
+  * Add ARM64 MSVC SIMD detection. (from Minmin Gong)
+  * Add detection of iOS simulator vs device as a platform choice. (from Ruslan
+    Baratov)
+  * Fix MinGW incorrect header guard. (from Ruslan Baratov)
+
 * [phrase library..[@/libs/program_options/ Program Options]:]
   * Support for storing values into `boost::optional`, thanks to Ed Catmur
     ([@https://svn.boost.org/trac/boost/ticket/7495 #7495],
@@ -66,19 +91,26 @@
     check the next token and use it as value if it's not an option itself.
     ([@https://github.com/boostorg/program_options/issues/25 #25])
 
+* [phrase library..[@/libs/smart_ptr/ Smart Pointers]:]
+  * New class template`atomic_shared_ptr`, that provides thread-safe atomic
+    pointer operations over `shared_ptr`. (Peter Dimov)
+  * New class template `local_shared_ptr`, where the reference count is
+    updated with non-atomic operations. (Peter Dimov)
+  * More optimizations in `allocate_shared` and `make_shared` for arrays.
+    (Glen Fernandes)
+  * Documentation has been completely rewritten in Asciidoc format.
 
-[/ TODO: These libraries always use the same message, referring to their
-   individual release notes. So check if they apply before the beta:
-
-* /TODO/: [phrase library..[@/libs/spirit/ Spirit]:]
-  * Spirit Vx.x, see the
-    '[@/doc/libs/1_xx_x/libs/spirit/doc/html/spirit/what_s_new/spirit_x_x.html What's New]'
-    section for details.
-
-* /TODO/: [phrase library..[@/libs/wave/ Wave]:]
-  * See the [@/libs/wave/ChangeLog Changelog] for details.
-
-]
+* [phrase library..[@/libs/unordered/ Unordered]:]
+  * Use the same data structure for `unordered_set` and `unordered_multiset`,
+    and for`unordered_map` and `unordered_multimap`. This is required for
+    C++17, so that nodes can be merged and extracted between compatible
+    containers.
+  * Add deprecated attributes to long deprecated functions.
+  * Improved use of `allocator_traits` `construct` and `destroy`
+    on C++11 compilers, using piecewise pair construction when appropriate.
+  * Fewer workarounds on newer Oracle compilers.
+  * Avoid dereferencing pointers to uninitialized memory
+    ([@https://github.com/boostorg/unordered/pull/5 PR #5]).
 
 [endsect]
 
@@ -86,16 +118,89 @@
 
 Boost's primary test compilers are:
 
-* /TODO/
+* Linux:
+  * Clang: 3.0, 3.8.1
+  * Clang, C++11: 3.0, 3.1, 3.2, 3.3, 3.4, 3.8.1
+  * Clang, C++14: 3.5.0, 3.6.0, 3.7.1, 3.8.0, 3.8.1, 3.9.1, 4.0.1
+  * Clang, C++1z: 4.0.0
+  * GCC: 4.4.7, 4.5.3, 4.6.3, 4.7.2, 5.4.0, 7.1.0
+  * GCC, C++11: 4.4.7, 4.7.2, 4.7.3, 4.8.5, 4.9.4, 5.4.0, 7.1.0
+  * GCC, C++14: 5.4.0, 5.4.1, 6.3.0, 7.1.0
+  * GCC, C++17: 7.1.0
+  * GCC, C++1z: 6.3.0
+  * Intel: 16.0, 17.0
+  * Intel, C++11: 16.0, 17.0
+  * Intel, C++14: 16.0
+* OS X:
+  * Clang: 8.1.0
+  * Clang, C++11: 8.1.0
+  * Clang, C++14: 8.1.0
+* Windows:
+  * GCC: 3.4.5, 4.1.2, 4.2.4, 4.3.3, 4.4.0, 4.5.4
+  * GCC, C++11: 4.6.4, 4.7.3, 4.8.1
+  * GCC, C++14: 4.9.3, 5.1.0, 5.2.0, 5.3.0, 6.1.0
+  * Visual C++: 7.1, 8.0, 9.0, 10.0, 11.0, 12.0, 14.0, 14.1
+* Android:
+  * Clang: 3.6, 3.7, 3.8
+  * GCC: 4.9, 5.4
+  * GCC, C++14: 6.2
+* FreeBSD:
+  * Clang: 3.8.0
+  * Clang, C++11: 3.8.0
+  * Clang, C++14: 3.8.0
+  * Clang, C++1z: 3.8.0
+* QNX:
+  * QCC, C++11: 4.7.3
+* SunOS:
+  * Oracle Solaris Studio: 12.5_next, 12.5
+  * Oracle Solaris Studio, C++11: 12.5_next, 12.5
 
 Boost's additional test compilers include:
 
-* /TODO/
+* Linux:
+  * Clang: 3.0, 3.8.1
+  * Clang, C++11: 3.0, 3.1, 3.2, 3.3, 3.4, 3.8.1
+  * Clang, C++14: 3.5.0, 3.6.0, 3.7.1, 3.8.0, 3.8.1, 3.9.1, 4.0.1
+  * Clang, C++1z: 4.0.0
+  * GCC: 4.4.7, 4.5.3, 4.6.3, 4.7.2, 5.4.0, 7.1.0
+  * GCC, C++11: 4.4.7, 4.7.2, 4.7.3, 4.8.5, 4.9.4, 5.4.0, 7.1.0
+  * GCC, C++14: 5.4.1, 6.2.0, 6.3.0, 7.1.0, 8.0.0
+  * GCC, C++17: 7.1.0
+  * GCC, C++1z: 6.3.0
+  * Intel: 17.0
+  * Intel, C++11: 16.0, 17.0
+  * Intel, C++14: 16.0
+* OS X:
+  * Clang: 8.1.0
+  * Clang, C++11: 8.1.0
+  * Clang, C++14: 8.1.0
+  * Clang, C++1z: 8.1.0
+* Windows:
+  * GCC: 3.4.5, 4.1.2, 4.2.4, 4.3.3, 4.4.0, 4.5.4
+  * GCC, C++11: 4.6.4, 4.7.3, 4.8.1
+  * GCC, C++14: 4.9.3, 5.1.0, 5.2.0, 5.3.0, 6.1.0
+  * Visual C++: 7.1, 8.0, 9.0, 10.0, 11.0, 12.0, 14.0, 14.1
+* Android:
+  * Clang: 3.6, 3.7, 3.8
+  * GCC: 4.9, 5.4
+  * GCC, C++14: 6.2
+* FreeBSD:
+  * Clang: 3.8.0
+  * Clang, C++11: 3.8.0
+  * Clang, C++14: 3.8.0
+  * Clang, C++1z: 3.8.0
+* SunOS:
+  * Oracle Solaris Studio: 12.5_next, 12.5
+  * Oracle Solaris Studio, C++11: 12.5_next, 12.5
 
 [endsect]
 
 [section Acknowledgements]
 
-/TODO/
+[@/users/people/beman_dawes.html Beman Dawes],
+Eric Niebler,
+[@/users/people/rene_rivera.html Rene Rivera],
+Daniel James, Vladimir Prus and Marshall Clow
+managed this release.
 
 [endsect]
