@@ -3,12 +3,12 @@
     [source-mode c++]
     [purpose
         New Libraries:
-        PolyCollection.
+        PolyCollection, Stacktrace.
         Updated Libraries:
-        [/ Please don't add updated libraries yet, it
-           can create unnecessary merge conflicts.]
+        Context, Config, Core, Coroutine2, Fiber, Hash, Log, Predef,
+        Program Options, Smart Pointers, Unordered.
     ]
-    [authors [Dawes, Beman]]
+    [authors [Clow, Marshall]]
     [/ last-revision is used for the final release date]
     [last-revision ]
 ]
