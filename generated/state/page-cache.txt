@@ -1343,6 +1343,14 @@
 "          <span class="library"><a href="/libs/stacktrace/">Stacktrace</a>:</span>
 "  Gather, store,
 "          copy and print backtraces, from Antony Polukhin.
+"          <ul>
+"            <li>
+"              <div>
+"                Note: Library has <a href="https://github.com/boostorg/stacktrace/issues/14">issue
+"                with MinGW</a> and may produce empty backtraces with that compiler.
+"              </div>
+"            </li>
+"          </ul>
 "        </div>
 "      </li>
 "    </ul>
@@ -1443,6 +1451,18 @@
 "            <li>
 "              <div>
 "                <a href="https://svn.boost.org/trac/boost/ticket/13064">#13064</a>: different behavior coroutine and coroutine2
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          <span class="library"><a href="/libs/dll/">DLL</a>:</span>
+"          <ul>
+"            <li>
+"              <div>
+"                Fix PE parsing on non Windows platforms.
 "              </div>
 "            </li>
 "          </ul>
@@ -1630,6 +1650,114 @@
 "      </li>
 "      <li>
 "        <div>
+"          <span class="library"><a href="/libs/test/">Test</a>:</span>
+"          <ul>
+"            <li>
+"              <div>
+"                Boost.test v3.6 see the <a href="/doc/libs/1_65_0/libs/test/doc/html/boost_test/change_log.html">Change
+"                log</a> section for more details.
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                New feature:
+"                <ul>
+"                  <li>
+"                    <div>
+"                      C++17 compatibility (tested on VS2017), thanks to <a href="https://github.com/DanielaE">Daniela
+"                      Engert</a>
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      Direct comparison of C-arrays in <code><span class="identifier">BOOST_TEST</span></code>
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      Better global fixtures mechanism, and spitting of responsibilities
+"                      with <a href="/doc/libs/1_65_0/libs/test/doc/html/boost_test/utf_reference/test_org_reference/test_org_boost_test_global_fixture.html"><code><span class="identifier">BOOST_TEST_GLOBAL_FIXTURE</span></code></a>
+"                      for global fixtures and <a href="/doc/libs/1_65_0/libs/test/doc/html/boost_test/utf_reference/link_references/link_boost_test_global_configuration.html"><code><span class="identifier">BOOST_TEST_GLOBAL_CONFIGURATION</span></code></a>
+"                      for global initialization (compile time configuration).
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      Improved support for fixtures (<code><span class="identifier">setup</span></code>
+"                      / <code><span class="identifier">teardown</span></code>
+"                      member function) which enables better teardown time checks
+"                    </div>
+"                  </li>
+"                </ul>
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Breaking changes
+"                <ul>
+"                  <li>
+"                    <div>
+"                      Some API changes for the loggers
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      Deprecating <code><span class="identifier">BOOST_GLOBAL_FIXTURE</span></code>
+"                      in favor of <code><span class="identifier">BOOST_TEST_GLOBAL_FIXTURE</span></code>
+"                      and <code><span class="identifier">BOOST_TEST_GLOBAL_CONFIGURATION</span></code>
+"                      (see above)
+"                    </div>
+"                  </li>
+"                </ul>
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Bug fixes
+"                <ul>
+"                  <li>
+"                    <div>
+"                      Trac tickets <a href="https://svn.boost.org/trac/boost/ticket/5282">#5282</a>, <a href="https://svn.boost.org/trac/boost/ticket/5563">#5563</a>, <a href="https://svn.boost.org/trac/boost/ticket/11471">#11471</a>, <a href="https://svn.boost.org/trac/boost/ticket/11962">#11962</a>,
+"                      <a href="https://svn.boost.org/trac/boost/ticket/12228">#12228</a>
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      Trac tickets <a href="https://svn.boost.org/trac/boost/ticket/12631">#12631</a>, <a href="https://svn.boost.org/trac/boost/ticket/13011">#13011</a>
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      Pull request <a href="https://github.com/boostorg/test/pull/106">PR106</a>
+"                    </div>
+"                  </li>
+"                </ul>
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          <span class="library"><a href="/libs/type_index/">TypeIndex</a>:</span>
+"          <ul>
+"            <li>
+"              <div>
+"                Include &lt;boost/functional/hash.hpp&gt; if required, thanks to
+"                Ed Catmur <a href="https://svn.boost.org/trac/boost/ticket/13009">#13009</a>.
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Use native <code><span class="identifier">hash_code</span><span class="special">()</span></code> when possible on GCC-like compilers
+"                <a href="https://svn.boost.org/trac/boost/ticket/13027">#13027</a>.
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
 "          <span class="library"><a href="/libs/unordered/">Unordered</a>:</span>
 "          <ul>
 "            <li>
@@ -1663,6 +1791,38 @@
 "              <div>
 "                Avoid dereferencing pointers to uninitialized memory (<a href="https://github.com/boostorg/unordered/pull/5">PR
 "                #5</a>).
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          <span class="library"><a href="/libs/utility/">Utility</a>:</span>
+"          <ul>
+"            <li>
+"              <div>
+"                Improved compatibility of <code><span class="identifier">boost</span><span class="special">::</span><span class="identifier">next</span></code>/<code><span class="identifier">boost</span><span class="special">::</span><span class="identifier">prior</span></code> with SFINAE-unfriendly iterators.
+"                <a href="https://svn.boost.org/trac/boost/ticket/10847">#10847</a>, <a href="https://svn.boost.org/trac/boost/ticket/13002">#13002</a>.
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          <span class="library"><a href="/libs/variant/">Variant</a>:</span>
+"          <ul>
+"            <li>
+"              <div>
+"                r-value overload for <code><span class="identifier">boost</span><span class="special">::</span><span class="identifier">get</span></code>
+"                was added by Albert Sverdlov <a href="https://svn.boost.org/trac/boost/ticket/13018">#13018</a>.
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Missing include fro <code><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">variant</span><span class="special">/</span><span class="identifier">polymorphic_get</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span></code>
+"                header was added by Adam Badura <a href="https://svn.boost.org/trac/boost/ticket/13037">#13037</a>.
 "              </div>
 "            </li>
 "          </ul>
@@ -2074,7 +2234,7 @@
 "  </div>
 "
 -hash
-"9b9a00daa914c22f9b4d0c11f08ec3d0b34933916ee8d317e4231a5ede604389
+"3183b6dd013e8a578ae0abe95f21b572ed683d657ded32630962dce6afbf2177
 -id
 "version_1_65_0
 -notice_url
@@ -2082,7 +2242,9 @@
 -pub_date
 -purpose_xml
 "
-"      New Libraries: PolyCollection. Updated Libraries:
+"      New Libraries: PolyCollection, Stacktrace. Updated Libraries: Context, Config,
+"      Core, Coroutine2, DLL, Fiber, Hash, Log, Predef, Program Options, Smart Pointers,
+"      Test, TypeIndex, Unordered, Utility, Variant.
 "
 -title_xml
 "Version 1.65.0

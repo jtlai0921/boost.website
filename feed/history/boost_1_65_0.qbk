@@ -5,8 +5,9 @@
         New Libraries:
         PolyCollection, Stacktrace.
         Updated Libraries:
-        Context, Config, Core, Coroutine2, Fiber, Hash, Log, Predef,
-        Program Options, Smart Pointers, Unordered.
+        Context, Config, Core, Coroutine2, DLL, Fiber, Hash,
+        Log, Predef, Program Options, Smart Pointers, Test, TypeIndex,
+        Unordered, Utility, Variant.
     ]
     [authors [Clow, Marshall]]
     [/ last-revision is used for the final release date]
@@ -23,8 +24,11 @@
 
 * [phrase library..[@/libs/stacktrace/ Stacktrace]:]
   Gather, store, copy and print backtraces, from Antony Polukhin.
+  * Note: Library has [@https://github.com/boostorg/stacktrace/issues/14 issue with MinGW] and
+  may produce empty backtraces with that compiler.
 
 [endsect]
+
 
 [section Updated Libraries]
 
@@ -52,6 +56,9 @@
     * supports ucontext-API (swapcontext)
     * supports Windows-Fiber-API
     * [ticket 13064]: different behavior coroutine and coroutine2 
+
+* [phrase library..[@/libs/dll/ DLL]:]
+    * Fix PE parsing on non Windows platforms.
 
  * [phrase library..[@/libs/fiber/ Fiber]:] 
     * hardware transactional memory (Intel TSX) supported
@@ -100,6 +107,32 @@
     (Glen Fernandes)
   * Documentation has been completely rewritten in Asciidoc format.
 
+* [phrase library..[@/libs/test/ Test]:]
+  * Boost.test v3.6 see the
+    [@/doc/libs/1_65_0/libs/test/doc/html/boost_test/change_log.html Change log]
+    section for more details.
+  * New feature:
+    * C++17 compatibility (tested on VS2017), thanks to [@https://github.com/DanielaE Daniela Engert]
+    * Direct comparison of C-arrays in `BOOST_TEST`
+    * Better global fixtures mechanism, and spitting of responsibilities with
+      [@/doc/libs/1_65_0/libs/test/doc/html/boost_test/utf_reference/test_org_reference/test_org_boost_test_global_fixture.html `BOOST_TEST_GLOBAL_FIXTURE`] for global fixtures
+      and
+      [@/doc/libs/1_65_0/libs/test/doc/html/boost_test/utf_reference/link_references/link_boost_test_global_configuration.html `BOOST_TEST_GLOBAL_CONFIGURATION`]
+      for global initialization (compile time configuration).
+    * Improved support for fixtures (`setup` / `teardown` member function) which enables better teardown time
+      checks
+  * Breaking changes
+    * Some API changes for the loggers
+    * Deprecating `BOOST_GLOBAL_FIXTURE` in favor of `BOOST_TEST_GLOBAL_FIXTURE` and `BOOST_TEST_GLOBAL_CONFIGURATION` (see above)
+  * Bug fixes
+    * Trac tickets [ticket 5282], [ticket 5563], [ticket 11471], [ticket 11962], [ticket 12228]
+    * Trac tickets [ticket 12631], [ticket 13011]
+    * Pull request [@https://github.com/boostorg/test/pull/106 PR106]
+
+* [phrase library..[@/libs/type_index/ TypeIndex]:]
+  * Include <boost/functional/hash.hpp> if required, thanks to Ed Catmur [ticket 13009].
+  * Use native `hash_code()` when possible on GCC-like compilers [ticket 13027].
+
 * [phrase library..[@/libs/unordered/ Unordered]:]
   * Use the same data structure for `unordered_set` and `unordered_multiset`,
     and for`unordered_map` and `unordered_multimap`. This is required for
@@ -111,6 +144,13 @@
   * Fewer workarounds on newer Oracle compilers.
   * Avoid dereferencing pointers to uninitialized memory
     ([@https://github.com/boostorg/unordered/pull/5 PR #5]).
+
+* [phrase library..[@/libs/utility/ Utility]:]
+  * Improved compatibility of `boost::next`/`boost::prior` with SFINAE-unfriendly iterators. [ticket 10847], [ticket 13002].
+
+* [phrase library..[@/libs/variant/ Variant]:]
+  * r-value overload for `boost::get` was added by Albert Sverdlov [ticket 13018].
+  * Missing include fro `<boost/variant/polymorphic_get.hpp>` header was added by Adam Badura [ticket 13037].
 
 [endsect]
 
