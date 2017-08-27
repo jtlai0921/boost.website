@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="US-ASCII"?>
 <boost xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <latest version="1.65.0 beta1"/>
+  <latest version="1.65.0"/>
   <categories>
     <category name="String">
       <title>String and text processing</title>
@@ -375,6 +375,19 @@
     <description>C++11-style atomic&lt;&gt;.</description>
     <documentation>libs/atomic/</documentation>
     <category>Concurrent</category>
+  </library>
+  <library>
+    <key>beast</key>
+    <library_path>libs/beast/</library_path>
+    <boost-version>unreleased</boost-version>
+    <update-version>develop</update-version>
+    <name>Beast</name>
+    <authors>Vinnie Falco</authors>
+    <maintainers>Vinnie Falco &lt;vinnie.falco@gmail.com&gt;</maintainers>
+    <description>Portable HTTP, WebSocket, and network operations using only C++11 and Boost.Asio</description>
+    <documentation>libs/beast/</documentation>
+    <category>Concurrent</category>
+    <category>IO</category>
   </library>
   <library>
     <key>bimap</key>
@@ -1463,7 +1476,7 @@
     <key>gil</key>
     <library_path>libs/gil/</library_path>
     <boost-version>1.35.0</boost-version>
-    <update-version>master</update-version>
+    <update-version>1.65.0</update-version>
     <name>GIL</name>
     <authors>Lubomir Bourdev</authors>
     <authors>Hailin Jin</authors>
@@ -2115,6 +2128,18 @@
     <category>Emulation</category>
   </library>
   <library>
+    <key>mp11</key>
+    <library_path>libs/mp11/</library_path>
+    <boost-version>unreleased</boost-version>
+    <update-version>develop</update-version>
+    <name>Mp11</name>
+    <authors>Peter Dimov</authors>
+    <maintainers>Peter Dimov &lt;pdimov -at- pdimov.com&gt;</maintainers>
+    <description>Simple C++11 metaprogramming library.</description>
+    <documentation>libs/mp11/</documentation>
+    <category>Metaprogramming</category>
+  </library>
+  <library>
     <key>mpi</key>
     <library_path>libs/mpi/</library_path>
     <boost-version>1.35.0</boost-version>
@@ -2566,6 +2591,17 @@
     <key>poly_collection</key>
     <library_path>libs/poly_collection/</library_path>
     <boost-version>1.65.0 beta1</boost-version>
+    <name>PolyCollection</name>
+    <authors>Joaqu&#237;n M L&#243;pez Mu&#241;oz</authors>
+    <maintainers>Joaquin M Lopez Munoz &lt;joaquin.lopezmunoz -at- gmail.com&gt;</maintainers>
+    <description>Fast containers of polymorphic objects.</description>
+    <documentation>libs/poly_collection/</documentation>
+    <category>Containers</category>
+  </library>
+  <library>
+    <key>poly_collection</key>
+    <library_path>libs/poly_collection/</library_path>
+    <boost-version>1.65.0</boost-version>
     <name>PolyCollection</name>
     <authors>Joaqu&#237;n M L&#243;pez Mu&#241;oz</authors>
     <maintainers>Joaquin M Lopez Munoz &lt;joaquin.lopezmunoz -at- gmail.com&gt;</maintainers>
@@ -3221,7 +3257,7 @@
     <key>smart_ptr</key>
     <library_path>libs/smart_ptr/</library_path>
     <boost-version>1.23.0</boost-version>
-    <update-version>master</update-version>
+    <update-version>1.65.0</update-version>
     <name>Smart Ptr</name>
     <authors>Greg Colvin</authors>
     <authors>Beman Dawes</authors>
@@ -3309,6 +3345,18 @@
     <key>stacktrace</key>
     <library_path>libs/stacktrace/</library_path>
     <boost-version>1.65.0 beta1</boost-version>
+    <name>Stacktrace</name>
+    <authors>Antony Polukhin</authors>
+    <maintainers>Antony Polukhin &lt;antoshkka -at- gmail.com&gt;</maintainers>
+    <description>Gather, store, copy and print backtraces.</description>
+    <documentation>libs/stacktrace/</documentation>
+    <category>Correctness</category>
+    <category>System</category>
+  </library>
+  <library>
+    <key>stacktrace</key>
+    <library_path>libs/stacktrace/</library_path>
+    <boost-version>1.65.0</boost-version>
     <name>Stacktrace</name>
     <authors>Antony Polukhin</authors>
     <maintainers>Antony Polukhin &lt;antoshkka -at- gmail.com&gt;</maintainers>
@@ -4028,6 +4076,20 @@
     <name>Uuid</name>
     <authors>Andy Tompkins</authors>
     <maintainers>Andy Tompkins &lt;atompkins -at- fastmail.fm&gt;</maintainers>
+    <description>A universally unique identifier.</description>
+    <documentation>libs/uuid/</documentation>
+    <category>Data</category>
+    <category>Domain</category>
+  </library>
+  <library>
+    <key>uuid</key>
+    <library_path>libs/uuid/</library_path>
+    <boost-version>1.42.0</boost-version>
+    <update-version>develop</update-version>
+    <name>Uuid</name>
+    <authors>Andy Tompkins</authors>
+    <maintainers>Andy Tompkins &lt;atompkins -at- fastmail.fm&gt;</maintainers>
+    <maintainers>Jim King &lt;jking -at - apache.org&gt;</maintainers>
     <description>A universally unique identifier.</description>
     <documentation>libs/uuid/</documentation>
     <category>Data</category>
