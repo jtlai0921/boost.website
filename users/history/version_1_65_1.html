@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-  <title>Version 1.65.0</title>
+  <title>Version 1.65.1</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="icon" href="/favicon.ico" type="image/ico" />
   <link rel="stylesheet" type="text/css" href="/style-v2/section-boost.css" />
@@ -32,54 +32,42 @@
         <div class="section" id="intro">
           <div class="section-0">
             <div class="section-title">
-              <h1>Version 1.65.0</h1>
+              <h1>Version 1.65.1</h1>
             </div>
 
             <div class="section-body">
               <h2><span class=
-              "news-title">Version 1.65.0</span></h2>
+              "news-title">Version 1.65.1</span></h2>
 
-              <p><span class=news-date">August 21st, 2017 20:50 GMT</span></p>
-              <p><a href="/doc/libs/1_65_0/">Documentation</a>
+              <p><span class=news-date">September 7th, 2017 17:31 GMT</span></p>
+              <p><a href="/doc/libs/1_65_1/">Documentation</a>
               <table class="download-table"><caption>Downloads</caption><tr><th scope="col">Platform</th><th scope="col">File</th><th scope="col">SHA256 Hash</th></tr>
-<tr><th scope="row" rowspan="2">unix</th><td><a href="http://dl.bintray.com/boostorg/release/1.65.0/source/boost_1_65_0.tar.bz2">boost_1_65_0.tar.bz2</a></td><td>ea26712742e2fb079c2a566a31f3266973b76e38222b9f88b387e3c8b2f9902c</td></tr><tr><td><a href="http://dl.bintray.com/boostorg/release/1.65.0/source/boost_1_65_0.tar.gz">boost_1_65_0.tar.gz</a></td><td>8a142d33ab4b4ed0de3abea3280ae3b2ce91c48c09478518c73e5dd2ba8f20aa</td></tr>
-<tr><th scope="row" rowspan="2">windows</th><td><a href="http://dl.bintray.com/boostorg/release/1.65.0/source/boost_1_65_0.7z">boost_1_65_0.7z</a></td><td>4873d8f3506fd8d76e2eadcf0ace83b258010fc268a4d974361af7abad5448f5</td></tr><tr><td><a href="http://dl.bintray.com/boostorg/release/1.65.0/source/boost_1_65_0.zip">boost_1_65_0.zip</a></td><td>f3f5c37be45eb6516c95cd147d8aa4abb9b52121fc3eccc1fc65c4af0cf48592</td></tr></table>
-<h3>Third Party Downloads</h3>
-<ul>
-<li><a href="https://dl.bintray.com/boostorg/release/1.65.0/binaries/">Windows Binaries</a></li>
-</ul>
-
+<tr><th scope="row" rowspan="2">unix</th><td><a href="https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.bz2">boost_1_65_1.tar.bz2</a></td><td>9807a5d16566c57fd74fb522764e0b134a8bbe6b6e8967b83afefd30dcd3be81</td></tr><tr><td><a href="https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.gz">boost_1_65_1.tar.gz</a></td><td>a13de2c8fbad635e6ba9c8f8714a0e6b4264b60a29b964b940a22554705b6b60</td></tr>
+<tr><th scope="row" rowspan="2">windows</th><td><a href="https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.7z">boost_1_65_1.7z</a></td><td>df7bea4ce58076bd8e9cd63966562d8cf969b431e1c587969e6aa408e51de606</td></tr><tr><td><a href="https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.zip">boost_1_65_1.zip</a></td><td>d1775aef807bd6a14077b450cce2950d8eacd86aaf51015f79e712917f8cc3c2</td></tr></table>
               <div class="news-description">
                 <div class="description">
 
 
-  <div id="version_1_65_0.known_issues">
-    <h3><span class="link">Known Issues</span></h3>
-    <p>
-      These are patches from library authors which were found too late to be fixed
-      in the release. Be careful as they have not been through the normal testing
-      process.
-    </p>
-    <p>
-      Combined patch for fixes to issues: <a href="/patches/1_65_0/boost_1_65_0.patch">boost_1_65_0.patch</a>.
-      Use <code><span class="identifier">patch</span> <span class="special">-</span><span class="identifier">p1</span> <span class="special">&lt;</span> <span class="identifier">boost_1_65_0</span><span class="special">.</span><span class="identifier">patch</span></code> from the root of the boost repo to
-      apply. Or you can apply the patches individually below.
-    </p>
+  <div id="version_1_65_1.fixes_in_1_65_1">
+    <h3><span class="link">Fixes in 1.65.1</span></h3>
     <ul>
       <li>
         <div>
-          Context and Fiber don't return continuations when they should:
+          <span class="library"><a href="/libs/config/">Config</a>:</span>
           <ul>
             <li>
               <div>
-                <a href="/patches/1_65_0/0001-context-function-executed-by-resume_with-has-to-retu.patch">Context
-                patch</a>
+                Version macro changes for CUDA.
               </div>
             </li>
             <li>
               <div>
-                <a href="/patches/1_65_0/0002-fiber-resume_with-requires-tor-return-a-continuation.patch">Fiber
-                patch</a>
+                Update last known MSVC version.
+              </div>
+            </li>
+            <li>
+              <div>
+                MSVC 14.11 supports structured bindings.
               </div>
             </li>
           </ul>
@@ -87,18 +75,78 @@
       </li>
       <li>
         <div>
-          Thread: Bug in <code><span class="identifier">boost</span><span class="special">::</span><span class="identifier">condition_variable</span></code> on Windows:
+          <span class="library"><a href="/libs/context/">Context</a>:</span>
           <ul>
             <li>
               <div>
-                <a href="/patches/1_65_0/0003-thread-130-Bug-in-boost-condition_variable-on-Window.patch">Thread
-                patch 1</a>
+                Return a continuation from functions executed by <code><span class="identifier">resume_with</span></code>.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span class="library"><a href="/libs/fiber/">Fiber</a>:</span>
+          <ul>
+            <li>
+              <div>
+                Return a continuation from functions executed by <code><span class="identifier">resume_with</span></code>.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span class="library"><a href="/libs/smart_ptr/">Smart Pointers</a>:</span>
+          <ul>
+            <li>
+              <div>
+                Fix Visual C++ version checks.
               </div>
             </li>
             <li>
               <div>
-                <a href="/patches/1_65_0/0004-thread-130-Bug-in-boost-condition_variable-on-Window.patch">Thread
-                patch 2</a>
+                Fix compilation for NVCC with host compiler clang.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span class="library"><a href="/libs/stacktrace/">Stacktrace</a>:</span>
+          <ul>
+            <li>
+              <div>
+                Update build testing file to detail with a MinGW issue.
+              </div>
+            </li>
+            <li>
+              <div>
+                Change preprocessor file extensions to work with the installation
+                system.
+              </div>
+            </li>
+            <li>
+              <div>
+                Support FreeBSD and other OSs that do not define <code><span class="identifier">_GNU_SOURCE</span></code>
+                but have <code><span class="identifier">_Unwind_Backtrace</span></code>
+                function.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span class="library"><a href="/libs/thread/">Thread</a>:</span>
+          <ul>
+            <li>
+              <div>
+                Fix bug in <code><span class="identifier">boost</span><span class="special">::</span><span class="identifier">condition_variable</span></code>
+                on Windows (<a href="https://github.com/boostorg/thread/issues/130">#130</a>).
               </div>
             </li>
           </ul>
@@ -106,8 +154,219 @@
       </li>
     </ul>
   </div>
-  <div id="version_1_65_0.new_libraries">
-    <h3><span class="link">New Libraries</span></h3>
+  <div id="version_1_65_1.compilers_tested">
+    <h3><span class="link">Compilers Tested</span></h3>
+    <p>
+      Boost's primary test compilers are:
+    </p>
+    <ul>
+      <li>
+        <div>
+          Linux:
+          <ul>
+            <li>
+              <div>
+                Clang: 3.0, 4.0.1, 5.0.0
+              </div>
+            </li>
+            <li>
+              <div>
+                Clang, C++11: 3.0, 3.1, 3.2, 3.3, 3.4, 4.0.1, 5.0.0
+              </div>
+            </li>
+            <li>
+              <div>
+                Clang, C++14: 3.5.0, 3.6.0, 3.7.1, 3.8.0, 3.9.1, 4.0.0, 5.0.0
+              </div>
+            </li>
+            <li>
+              <div>
+                Clang, C++17: 5.0.0
+              </div>
+            </li>
+            <li>
+              <div>
+                Clang, C++1z: 4.0.0
+              </div>
+            </li>
+            <li>
+              <div>
+                GCC: 4.4.7, 4.5.3, 4.6.3, 4.7.2, 5.4.0, 7.1.0
+              </div>
+            </li>
+            <li>
+              <div>
+                GCC, C++11: 4.4.7, 4.7.2, 4.7.3, 4.8.5, 4.9.4, 5.4.0, 6.4.0, 7.1.0
+              </div>
+            </li>
+            <li>
+              <div>
+                GCC, C++14: 5.4.0, 5.4.1, 6.3.0, 6.4.0, 7.1.0, 7.2.0
+              </div>
+            </li>
+            <li>
+              <div>
+                GCC, C++17: 7.1.0
+              </div>
+            </li>
+            <li>
+              <div>
+                GCC, C++1z: 6.3.0
+              </div>
+            </li>
+            <li>
+              <div>
+                Intel: 17.0
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div>
+          OS X:
+          <ul>
+            <li>
+              <div>
+                Clang: 8.1.0
+              </div>
+            </li>
+            <li>
+              <div>
+                Clang, C++11: 8.1.0
+              </div>
+            </li>
+            <li>
+              <div>
+                Clang, C++14: 8.1.0
+              </div>
+            </li>
+            <li>
+              <div>
+                Clang, C++1z: 8.1.0
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div>
+          Windows:
+          <ul>
+            <li>
+              <div>
+                GCC: 3.4.5, 4.1.2, 4.2.4, 4.3.3, 4.4.0, 4.5.4
+              </div>
+            </li>
+            <li>
+              <div>
+                GCC, C++11: 4.6.4, 4.7.3, 4.8.1
+              </div>
+            </li>
+            <li>
+              <div>
+                GCC, C++14: 4.9.3, 5.1.0, 5.2.0, 5.3.0, 6.1.0, 6.2.0, 6.3.0, 6.4.0,
+                7.1.0
+              </div>
+            </li>
+            <li>
+              <div>
+                Visual C++: 7.1, 8.0, 9.0, 10.0, 11.0, 12.0, 14.0, 14.1
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div>
+          Android:
+          <ul>
+            <li>
+              <div>
+                Clang: 3.6, 3.7, 3.8
+              </div>
+            </li>
+            <li>
+              <div>
+                GCC: 4.9, 5.4
+              </div>
+            </li>
+            <li>
+              <div>
+                GCC, C++14: 6.2
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div>
+          FreeBSD:
+          <ul>
+            <li>
+              <div>
+                Clang: 3.8.0
+              </div>
+            </li>
+            <li>
+              <div>
+                Clang, C++11: 3.8.0
+              </div>
+            </li>
+            <li>
+              <div>
+                Clang, C++14: 3.8.0
+              </div>
+            </li>
+            <li>
+              <div>
+                Clang, C++1z: 3.8.0
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div>
+          QNX:
+          <ul>
+            <li>
+              <div>
+                QCC, C++11: 4.4.2
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div>
+          SunOS:
+          <ul>
+            <li>
+              <div>
+                Oracle Solaris Studio: 12.5_next, 12.5
+              </div>
+            </li>
+            <li>
+              <div>
+                Oracle Solaris Studio, C++11: , 12.5_next, 12.5
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="version_1_65_1.acknowledgements">
+    <h3><span class="link">Acknowledgements</span></h3>
+    <p>
+      <a href="/users/people/beman_dawes.html">Beman Dawes</a>, Daniel James,
+      Vladimir Prus and Marshall Clow managed this release.
+    </p>
+  </div>
+  <div id="version_1_65_1.new_libraries_in_1_65_0">
+    <h3><span class="link">New Libraries in
+    1.65.0</span></h3>
     <ul>
       <li>
         <div>
@@ -133,8 +392,9 @@
       </li>
     </ul>
   </div>
-  <div id="version_1_65_0.updated_libraries">
-    <h3><span class="link">Updated Libraries</span></h3>
+  <div id="version_1_65_1.updated_libraries_in_1_65_0">
+    <h3><span class="link">Updated Libraries
+    in 1.65.0</span></h3>
     <ul>
       <li>
         <div>
@@ -1021,408 +1281,6 @@
         </div>
       </li>
     </ul>
-  </div>
-  <div id="version_1_65_0.compilers_tested">
-    <h3><span class="link">Compilers Tested</span></h3>
-    <p>
-      Boost's primary test compilers are:
-    </p>
-    <ul>
-      <li>
-        <div>
-          Linux:
-          <ul>
-            <li>
-              <div>
-                Clang: 3.0, 3.8.1
-              </div>
-            </li>
-            <li>
-              <div>
-                Clang, C++11: 3.0, 3.1, 3.2, 3.3, 3.4, 3.8.1
-              </div>
-            </li>
-            <li>
-              <div>
-                Clang, C++14: 3.5.0, 3.6.0, 3.7.1, 3.8.0, 3.8.1, 3.9.1, 4.0.1
-              </div>
-            </li>
-            <li>
-              <div>
-                Clang, C++1z: 4.0.0
-              </div>
-            </li>
-            <li>
-              <div>
-                GCC: 4.4.7, 4.5.3, 4.6.3, 4.7.2, 5.4.0, 7.1.0
-              </div>
-            </li>
-            <li>
-              <div>
-                GCC, C++11: 4.4.7, 4.7.2, 4.7.3, 4.8.5, 4.9.4, 5.4.0, 7.1.0
-              </div>
-            </li>
-            <li>
-              <div>
-                GCC, C++14: 5.4.0, 5.4.1, 6.3.0, 7.1.0
-              </div>
-            </li>
-            <li>
-              <div>
-                GCC, C++17: 7.1.0
-              </div>
-            </li>
-            <li>
-              <div>
-                GCC, C++1z: 6.3.0
-              </div>
-            </li>
-            <li>
-              <div>
-                Intel: 16.0, 17.0
-              </div>
-            </li>
-            <li>
-              <div>
-                Intel, C++11: 16.0, 17.0
-              </div>
-            </li>
-            <li>
-              <div>
-                Intel, C++14: 16.0
-              </div>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div>
-          OS X:
-          <ul>
-            <li>
-              <div>
-                Clang: 8.1.0
-              </div>
-            </li>
-            <li>
-              <div>
-                Clang, C++11: 8.1.0
-              </div>
-            </li>
-            <li>
-              <div>
-                Clang, C++14: 8.1.0
-              </div>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div>
-          Windows:
-          <ul>
-            <li>
-              <div>
-                GCC: 3.4.5, 4.1.2, 4.2.4, 4.3.3, 4.4.0, 4.5.4
-              </div>
-            </li>
-            <li>
-              <div>
-                GCC, C++11: 4.6.4, 4.7.3, 4.8.1
-              </div>
-            </li>
-            <li>
-              <div>
-                GCC, C++14: 4.9.3, 5.1.0, 5.2.0, 5.3.0, 6.1.0
-              </div>
-            </li>
-            <li>
-              <div>
-                Visual C++: 7.1, 8.0, 9.0, 10.0, 11.0, 12.0, 14.0, 14.1
-              </div>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div>
-          Android:
-          <ul>
-            <li>
-              <div>
-                Clang: 3.6, 3.7, 3.8
-              </div>
-            </li>
-            <li>
-              <div>
-                GCC: 4.9, 5.4
-              </div>
-            </li>
-            <li>
-              <div>
-                GCC, C++14: 6.2
-              </div>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div>
-          FreeBSD:
-          <ul>
-            <li>
-              <div>
-                Clang: 3.8.0
-              </div>
-            </li>
-            <li>
-              <div>
-                Clang, C++11: 3.8.0
-              </div>
-            </li>
-            <li>
-              <div>
-                Clang, C++14: 3.8.0
-              </div>
-            </li>
-            <li>
-              <div>
-                Clang, C++1z: 3.8.0
-              </div>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div>
-          QNX:
-          <ul>
-            <li>
-              <div>
-                QCC, C++11: 4.7.3
-              </div>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div>
-          SunOS:
-          <ul>
-            <li>
-              <div>
-                Oracle Solaris Studio: 12.5_next, 12.5
-              </div>
-            </li>
-            <li>
-              <div>
-                Oracle Solaris Studio, C++11: 12.5_next, 12.5
-              </div>
-            </li>
-          </ul>
-        </div>
-      </li>
-    </ul>
-    <p>
-      Boost's additional test compilers include:
-    </p>
-    <ul>
-      <li>
-        <div>
-          Linux:
-          <ul>
-            <li>
-              <div>
-                Clang: 3.0, 3.8.1
-              </div>
-            </li>
-            <li>
-              <div>
-                Clang, C++11: 3.0, 3.1, 3.2, 3.3, 3.4, 3.8.1
-              </div>
-            </li>
-            <li>
-              <div>
-                Clang, C++14: 3.5.0, 3.6.0, 3.7.1, 3.8.0, 3.8.1, 3.9.1, 4.0.1
-              </div>
-            </li>
-            <li>
-              <div>
-                Clang, C++1z: 4.0.0
-              </div>
-            </li>
-            <li>
-              <div>
-                GCC: 4.4.7, 4.5.3, 4.6.3, 4.7.2, 5.4.0, 7.1.0
-              </div>
-            </li>
-            <li>
-              <div>
-                GCC, C++11: 4.4.7, 4.7.2, 4.7.3, 4.8.5, 4.9.4, 5.4.0, 7.1.0
-              </div>
-            </li>
-            <li>
-              <div>
-                GCC, C++14: 5.4.1, 6.2.0, 6.3.0, 7.1.0, 8.0.0
-              </div>
-            </li>
-            <li>
-              <div>
-                GCC, C++17: 7.1.0
-              </div>
-            </li>
-            <li>
-              <div>
-                GCC, C++1z: 6.3.0
-              </div>
-            </li>
-            <li>
-              <div>
-                Intel: 17.0
-              </div>
-            </li>
-            <li>
-              <div>
-                Intel, C++11: 16.0, 17.0
-              </div>
-            </li>
-            <li>
-              <div>
-                Intel, C++14: 16.0
-              </div>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div>
-          OS X:
-          <ul>
-            <li>
-              <div>
-                Clang: 8.1.0
-              </div>
-            </li>
-            <li>
-              <div>
-                Clang, C++11: 8.1.0
-              </div>
-            </li>
-            <li>
-              <div>
-                Clang, C++14: 8.1.0
-              </div>
-            </li>
-            <li>
-              <div>
-                Clang, C++1z: 8.1.0
-              </div>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div>
-          Windows:
-          <ul>
-            <li>
-              <div>
-                GCC: 3.4.5, 4.1.2, 4.2.4, 4.3.3, 4.4.0, 4.5.4
-              </div>
-            </li>
-            <li>
-              <div>
-                GCC, C++11: 4.6.4, 4.7.3, 4.8.1
-              </div>
-            </li>
-            <li>
-              <div>
-                GCC, C++14: 4.9.3, 5.1.0, 5.2.0, 5.3.0, 6.1.0
-              </div>
-            </li>
-            <li>
-              <div>
-                Visual C++: 7.1, 8.0, 9.0, 10.0, 11.0, 12.0, 14.0, 14.1
-              </div>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div>
-          Android:
-          <ul>
-            <li>
-              <div>
-                Clang: 3.6, 3.7, 3.8
-              </div>
-            </li>
-            <li>
-              <div>
-                GCC: 4.9, 5.4
-              </div>
-            </li>
-            <li>
-              <div>
-                GCC, C++14: 6.2
-              </div>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div>
-          FreeBSD:
-          <ul>
-            <li>
-              <div>
-                Clang: 3.8.0
-              </div>
-            </li>
-            <li>
-              <div>
-                Clang, C++11: 3.8.0
-              </div>
-            </li>
-            <li>
-              <div>
-                Clang, C++14: 3.8.0
-              </div>
-            </li>
-            <li>
-              <div>
-                Clang, C++1z: 3.8.0
-              </div>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div>
-          SunOS:
-          <ul>
-            <li>
-              <div>
-                Oracle Solaris Studio: 12.5_next, 12.5
-              </div>
-            </li>
-            <li>
-              <div>
-                Oracle Solaris Studio, C++11: 12.5_next, 12.5
-              </div>
-            </li>
-          </ul>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="version_1_65_0.acknowledgements">
-    <h3><span class="link">Acknowledgements</span></h3>
-    <p>
-      <a href="/users/people/beman_dawes.html">Beman Dawes</a>, Eric Niebler,
-      <a href="/users/people/rene_rivera.html">Rene Rivera</a>, Daniel James,
-      Vladimir Prus and Marshall Clow managed this release.
-    </p>
   </div>
 </div>
               </div>
