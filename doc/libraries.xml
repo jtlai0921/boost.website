@@ -670,6 +670,18 @@
     <category>System</category>
   </library>
   <library>
+    <key>contract</key>
+    <library_path>libs/contract/</library_path>
+    <boost-version>unreleased</boost-version>
+    <update-version>develop</update-version>
+    <name>Contract</name>
+    <authors>Lorenzo Caminiti</authors>
+    <maintainers>Lorenzo Caminiti &lt;lorcaminiti -at- gmail.com&gt;</maintainers>
+    <description>Contract programming for C++. All contract programming features are supported: subcontracting, class invariants, postconditions (with old and return values), preconditions, customizable actions on assertion failure (terminate, throw, etc.), optional compilation and checking of assertions, etc.</description>
+    <documentation>libs/contract/</documentation>
+    <category>Correctness</category>
+  </library>
+  <library>
     <key>conversion</key>
     <library_path>libs/conversion/</library_path>
     <boost-version>1.20.0</boost-version>
@@ -1220,6 +1232,20 @@
     <authors>Samuel Krempp</authors>
     <maintainers>Samuel Krempp &lt;krempp -at- crans.ens-cachan.fr&gt;</maintainers>
     <description>The format library provides a class for formatting arguments according to a format-string, as does printf, but with two major differences: format sends the arguments to an internal stream, and so is entirely type-safe and naturally supports all user-defined types; the ellipsis (...) can not be used correctly in the strongly typed context of format, and thus the function call with arbitrary arguments is replaced by successive calls to an argument feeding operator%.</description>
+    <documentation>libs/format/</documentation>
+    <category>IO</category>
+    <category>String</category>
+  </library>
+  <library>
+    <key>format</key>
+    <library_path>libs/format/</library_path>
+    <boost-version>1.29.0</boost-version>
+    <update-version>master</update-version>
+    <name>Format</name>
+    <authors>Samuel Krempp</authors>
+    <maintainers>Samuel Krempp &lt;krempp -at- crans.ens-cachan.fr&gt;</maintainers>
+    <maintainers>James E. King, III &lt;jking -at- apache.org&gt;</maintainers>
+    <description>The format library provides a type-safe mechanism for formatting arguments according to a printf-like format-string.</description>
     <documentation>libs/format/</documentation>
     <category>IO</category>
     <category>String</category>
@@ -2147,7 +2173,7 @@
     <name>Mp11</name>
     <authors>Peter Dimov</authors>
     <maintainers>Peter Dimov &lt;pdimov -at- pdimov.com&gt;</maintainers>
-    <description>Simple C++11 metaprogramming library.</description>
+    <description>A C++11 metaprogramming library.</description>
     <documentation>libs/mp11/</documentation>
     <category>Metaprogramming</category>
   </library>

@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
   <title>In Progress Releases</title>
+  <meta name="viewport" content="width=device-width"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="icon" href="/favicon.ico" type="image/ico" />
   <link rel="stylesheet" type="text/css" href="/style-v2/section-boost.css" />
@@ -44,7 +45,25 @@
     <ul>
       <li>
         <div>
-          <em>TODO</em>
+          <span class="library"><a href="/doc/libs/master/libs/beast/">Beast</a>:</span>
+  Portable HTTP, WebSocket,
+          and network operations using only C++11 and Boost.Asio, from Vinnie Falco.
+        </div>
+      </li>
+      <li>
+        <div>
+          <span class="library"><a href="/doc/libs/master/libs/callable_traits/">CallableTraits</a>:</span>
+  A spiritual
+          successor to Boost.FunctionTypes, Boost.CallableTraits is a header-only
+          C++11 library for the compile-time inspection and manipulation of all 'callable'
+          types. Additional support for C++17 features, from Barrett Adair.
+        </div>
+      </li>
+      <li>
+        <div>
+          <span class="library"><a href="/doc/libs/master/libs/mp11/">Mp11</a>:</span>
+  Simple C++11 metaprogramming
+          library, from Peter Dimov.
         </div>
       </li>
     </ul>
@@ -141,6 +160,122 @@
       </li>
       <li>
         <div>
+          <span class="library"><a href="/doc/libs/master/libs/format/">Format</a>:</span>
+          <ul>
+            <li>
+              <div>
+                Improvements:
+                <ul>
+                  <li>
+                    <div>
+                      Accept new conversion specifiers:
+                      <ul>
+                        <li>
+                          <div>
+                            <a href="https://github.com/boostorg/format/pull/41"><code><span class="identifier">a</span></code></a>: sets flags
+                            <code><span class="identifier">fixed</span> <span class="special">|</span> <span class="identifier">scientific</span></code>
+                            (i.e. <code><span class="identifier">hexfloat</span></code>)
+                          </div>
+                        </li>
+                        <li>
+                          <div>
+                            <a href="https://github.com/boostorg/format/pull/43"><code><span class="identifier">b</span></code></a>: sets flag
+                            <code><span class="identifier">boolalpha</span></code>
+                          </div>
+                        </li>
+                        <li>
+                          <div>
+                            <a href="https://github.com/boostorg/format/pull/41"><code><span class="identifier">A</span></code></a>: same as
+                            <code><span class="identifier">a</span></code> plus
+                            flag <code><span class="identifier">uppercase</span></code>
+                          </div>
+                        </li>
+                        <li>
+                          <div>
+                            <a href="https://github.com/boostorg/format/pull/41"><code><span class="identifier">F</span></code></a>: same as
+                            <code><span class="identifier">f</span></code> plus
+                            flag <code><span class="identifier">uppercase</span></code>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <a href="https://github.com/boostorg/format/pull/42">42</a>
+                      Accept new argument types <code><span class="identifier">j</span></code>
+                      and <code><span class="identifier">z</span></code> from
+                      ISO C99 (parsed and ignored like all others).
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <a href="https://github.com/boostorg/format/pull/44">44</a>
+                      Accept new argument types <code><span class="identifier">I</span></code>,
+                      <code><span class="identifier">I32</span></code>, <code><span class="identifier">I64</span></code>, and <code><span class="identifier">w</span></code>
+                      from Microsoft (parsed and ignored like all others).
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <a href="https://github.com/boostorg/format/issues/33">33</a>
+                      Added a development tool called <code><span class="identifier">format_matrix</span></code>
+                      that exercises as many different combinations of format strings
+                      as possible and logs them to a file:
+                      <ul>
+                        <li>
+                          <div>
+                            helps prevent regressions in between boost releases
+                          </div>
+                        </li>
+                        <li>
+                          <div>
+                            allows for comparison against <code><span class="identifier">snprintf</span></code>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div>
+                Bugfixes:
+                <ul>
+                  <li>
+                    <div>
+                      <a href="https://svn.boost.org/trac10/ticket/4636">4636</a>
+                      Explicit clamping provided to allow MSVC /RTCc to succeed
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <a href="https://svn.boost.org/trac10/ticket/7477">7477</a>
+                      Fix compatibility with MSVC /Za
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <a href="https://svn.boost.org/trac10/ticket/10324">10324</a>
+                      Const-correct cast issue resolved
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <a href="https://svn.boost.org/trac10/ticket/11632">11632</a>
+                      Fix <code><span class="special">-</span><span class="identifier">fsanitize</span><span class="special">=</span><span class="identifier">undefined</span></code>
+                      issue in <code><span class="identifier">alt_sstream</span><span class="special">.</span><span class="identifier">hpp</span></code>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div>
           <span class="library"><a href="/doc/libs/master/libs/iterator/">Iterator</a>:</span>
           <ul>
             <li>
@@ -215,12 +350,117 @@
       </li>
       <li>
         <div>
+          <span class="library"><a href="/doc/libs/master/libs/poly_collection/">PolyCollection</a>:</span>
+          <ul>
+            <li>
+              <div>
+                Boost.PolyCollection has been backported to GCC 4.8-9. In the case
+                of GCC 4.8, there are some limitations coming from deficiencies in
+                the version of libstdc++-v3 this compiler uses:
+                <ul>
+                  <li>
+                    <div>
+                      Stateful allocators are not properly supported.
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      Allocator-extended move construction decays to allocator-extended
+                      copy construction.
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      Copy construction crashes if an exception is thrown during
+                      element copying.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div>
+                Maintenance fixes.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div>
           <span class="library"><a href="/doc/libs/master/libs/utility/">Utility</a>:</span>
           <ul>
             <li>
               <div>
                 <code><span class="identifier">boost</span><span class="special">/</span><span class="identifier">next_prior</span><span class="special">.</span><span class="identifier">hpp</span></code> has been moved to Boost.Iterator.
                 No changes needed to the user's code.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span class="library"><a href="/doc/libs/master/libs/uuid/">Uuid</a>:</span>
+          <ul>
+            <li>
+              <div>
+                Improvements:
+                <ul>
+                  <li>
+                    <div>
+                      <a href="https://github.com/boostorg/uuid/issues/26">26</a>
+                      Refactored <code><span class="identifier">name_generator</span></code>
+                      to support a configurable hash provider concept and provide
+                      an optional MD5 hash implementation per RFC-4122. This will
+                      make it easier to support whatever becomes the next standard
+                      hash algorithm.
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <a href="https://github.com/boostorg/uuid/issues/34">34</a>
+                      Added RFC-4122 namespaces in <code><span class="identifier">boost</span><span class="special">::</span><span class="identifier">uuids</span><span class="special">::</span><span class="identifier">ns</span></code>.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div>
+                Bugfixes:
+                <ul>
+                  <li>
+                    <div>
+                      <a href="https://svn.boost.org/trac10/ticket/8630">8630</a>
+                      <a href="https://svn.boost.org/trac10/ticket/11482">11482</a>
+                      <a href="https://svn.boost.org/trac10/ticket/12253">12253</a>
+                      Various deficiencies in <code><span class="identifier">string_generator</span></code>
+                      were resolved.
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <a href="https://svn.boost.org/trac10/ticket/11483">11483</a>
+                      Invalid <code><span class="identifier">string_generator</span></code>
+                      inputs now throw <code><span class="identifier">std</span><span class="special">::</span><span class="identifier">invalid_argument</span></code>
+                      instead of <code><span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span></code>.
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <a href="https://svn.boost.org/trac10/ticket/10665">10665</a>
+                      <code><span class="identifier">name_generator</span><span class="special">::</span><span class="keyword">operator</span><span class="special">()</span></code> is now const, matching docs.
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      Detail headers were moved into the detail subdirectory. No
+                      changes needed to user's code, however you may get build warnings
+                      if you use the old header location.
+                    </div>
+                  </li>
+                </ul>
               </div>
             </li>
           </ul>
