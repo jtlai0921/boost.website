@@ -3997,6 +3997,13 @@
 "
 "
 "
+"  <div id="version_1_66_0.note_about_the_new_visual_studio">
+"    <h3><span class="link">Note about
+"    the new Visual Studio release</span></h3>
+"    <p>
+"      Visual Studio 15.5 was released too late for us to test this release with it.
+"    </p>
+"  </div>
 "  <div id="version_1_66_0.new_libraries">
 "    <h3><span class="link">New Libraries</span></h3>
 "    <ul>
@@ -4019,8 +4026,8 @@
 "      <li>
 "        <div>
 "          <span class="library"><a href="/libs/mp11/">Mp11</a>:</span>
-"  Simple C++11 metaprogramming
-"          library, from Peter Dimov.
+"  A C++11 metaprogramming library,
+"          from Peter Dimov.
 "        </div>
 "      </li>
 "    </ul>
@@ -4028,6 +4035,72 @@
 "  <div id="version_1_66_0.updated_libraries">
 "    <h3><span class="link">Updated Libraries</span></h3>
 "    <ul>
+"      <li>
+"        <div>
+"          <span class="library"><a href="/libs/asio/">Asio</a>:</span>
+"          <ul>
+"            <li>
+"              <div>
+"                Implemented interface changes to reflect the Networking TS (<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4656.pdf">N4656</a>).
+"                <ul>
+"                  <li>
+"                    <div>
+"                      See the <a href="/doc/libs/1_66_0/doc/html/boost_asio/net_ts.html">list</a>
+"                      of new interfaces and, where applicable, the corresponding
+"                      old interfaces that have been superseded.
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      The service template parameters, and the corresponding classes,
+"                      are disabled by default. For example, instead of <code><span class="identifier">basic_socket</span><span class="special">&lt;</span><span class="identifier">Protocol</span><span class="special">,</span>
+"                      <span class="identifier">SocketService</span><span class="special">&gt;</span></code>
+"                      we now have simply <code><span class="identifier">basic_socket</span><span class="special">&lt;</span><span class="identifier">Protocol</span><span class="special">&gt;</span></code>. The old interface can
+"                      be enabled by defining the <code><span class="identifier">BOOST_ASIO_ENABLE_OLD_SERVICES</span></code>
+"                      macro.
+"                    </div>
+"                  </li>
+"                </ul>
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Removed previously deprecated functions.
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Added support for customised handler tracking.
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Added reactor-related (i.e. descriptor readiness) events to handler
+"                tracking.
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Added special "concurrency hint" values that may be used
+"                to disable locking on a per <code><span class="identifier">io_context</span></code>
+"                basis.
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Enabled perfect forwarding for the first <code><span class="identifier">ssl</span><span class="special">::</span><span class="identifier">stream</span><span class="special">&lt;&gt;</span></code> constructor argument.
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Added ability to release ownership of the underlying native socket.
+"                (Requires Windows 8.1 or later when using the I/O completion port
+"                backend.)
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
 "      <li>
 "        <div>
 "          <span class="library"><a href="/libs/atomic/">Atomic</a>:</span>
@@ -4110,6 +4183,23 @@
 "              <div>
 "                Fixed an integral overflow that could cause incorrect results when
 "                adding or subtracting many years from a date (see <a href="https://stackoverflow.com/questions/45537280/boost-datetime-issue-with-adding-long-year-durations">here</a>).
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          <span class="library"><a href="/libs/fiber/">Fiber</a>:</span>
+"          <ul>
+"            <li>
+"              <div>
+"                synchronization with CUDA streams
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                synchronization with ROCm/HIP streams
 "              </div>
 "            </li>
 "          </ul>
@@ -4202,6 +4292,12 @@
 "                <ul>
 "                  <li>
 "                    <div>
+"                      <a href="https://github.com/boostorg/format/issues/36">36</a>
+"                      Safely allow volatile arguments to be used with operator%
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
 "                      <a href="https://svn.boost.org/trac10/ticket/4636">4636</a>
 "                      Explicit clamping provided to allow MSVC /RTCc to succeed
 "                    </div>
@@ -4223,6 +4319,87 @@
 "                      <a href="https://svn.boost.org/trac10/ticket/11632">11632</a>
 "                      Fix <code><span class="special">-</span><span class="identifier">fsanitize</span><span class="special">=</span><span class="identifier">undefined</span></code>
 "                      issue in <code><span class="identifier">alt_sstream</span><span class="special">.</span><span class="identifier">hpp</span></code>
+"                    </div>
+"                  </li>
+"                </ul>
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          <span class="library"><a href="/libs/fusion/">Fusion</a>:</span>
+"          <ul>
+"            <li>
+"              <div>
+"                <a href="https://github.com/boostorg/fusion/pull/149">PR#149</a>
+"                <code><span class="identifier">isspace</span><span class="special">(</span><span class="identifier">c</span><span class="special">)</span></code>
+"                is not a macro in Dinkum clib for VxWorks, thanks to Brian Kuhl(@kuhlenough).
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                <a href="https://github.com/boostorg/fusion/pull/150">PR#150</a>
+"                Remove circular preprocessor include, thanks to Gregor Jasny(@gjasny).
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                <a href="https://github.com/boostorg/fusion/pull/151">PR#151</a>
+"                Change base of <code><span class="identifier">fusion</span><span class="special">::</span><span class="identifier">tuple</span></code>.
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                <a href="https://github.com/boostorg/fusion/pull/153">PR#153</a>
+"                Fixed compile error with <code><span class="identifier">std</span><span class="special">::</span><span class="identifier">array</span></code>.
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                <a href="https://github.com/boostorg/fusion/pull/154">PR#154</a>
+"                Fixed bugs nesting and copying on c++03.
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          <span class="library"><a href="/libs/geometry/">Geometry</a>:</span>
+"          <ul>
+"            <li>
+"              <div>
+"                Improvements:
+"                <ul>
+"                  <li>
+"                    <div>
+"                      Add distance for geographic PointLike/AnyGeometry.
+"                    </div>
+"                  </li>
+"                </ul>
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Bugfixes:
+"                <ul>
+"                  <li>
+"                    <div>
+"                      Fixes in results of union/intersection/difference which could
+"                      be incorrect in very complex cases
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      Fixes in validity of union/intersection/difference/buffer
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      Fixes in set and relational operations for non-cartesian coordinate
+"                      systems.
 "                    </div>
 "                  </li>
 "                </ul>
@@ -4278,6 +4455,37 @@
 "      </li>
 "      <li>
 "        <div>
+"          <span class="library"><a href="/libs/math/">Math</a>:</span>
+"          <ul>
+"            <li>
+"              <div>
+"                New Features:
+"                <ul>
+"                  <li>
+"                    <div>
+"                      Add Gauss and Gauss-Kronrod quadrature routines.
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      Add double-exponential (tanh-sinh, exp-sinh and sinh-sinh)
+"                      quadrature routines.
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      Add Chebyshev polynomial evaluation, roots, integration, differentiation,
+"                      and interpolation routines.
+"                    </div>
+"                  </li>
+"                </ul>
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
 "          <span class="library"><a href="/libs/multi_index/index.html">Multi-index Containers</a>:</span>
 "          <ul>
 "            <li>
@@ -4307,13 +4515,36 @@
 "      </li>
 "      <li>
 "        <div>
+"          <span class="library"><a href="/libs/optional/index.html">Optional</a>:</span>
+"          <ul>
+"            <li>
+"              <div>
+"                On newer compilers <code><span class="identifier">optional</span></code>
+"                is now trivially-copyable for scalar <code><span class="identifier">T</span></code>s.
+"                This uses a different storage (just <code><span class="identifier">T</span></code>
+"                rather than <code><span class="identifier">aligned_storage</span></code>).
+"                We require the compiler to support defaulted functions.
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Changed the implementation of <code><span class="keyword">operator</span><span class="special">==</span></code> to get rid of the <code><span class="special">-</span><span class="identifier">Wmaybe</span><span class="special">-</span><span class="identifier">uninitialized</span></code>
+"                false-positive warning from GCC.
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
 "          <span class="library"><a href="/libs/poly_collection/">PolyCollection</a>:</span>
 "          <ul>
 "            <li>
 "              <div>
-"                Boost.PolyCollection has been backported to GCC 4.8-9. In the case
-"                of GCC 4.8, there are some limitations coming from deficiencies in
-"                the version of libstdc++-v3 this compiler uses:
+"                Boost.PolyCollection has been backported to GCC 4.8 to 4.9 and Clang
+"                3.3 to 3.6. The version of libstdc++-v3 shipped with GCC 4.8 (which
+"                can also be used by Clang) has deficiencies that result in the following
+"                limitations when using Boost.PolyCollection:
 "                <ul>
 "                  <li>
 "                    <div>
@@ -4338,6 +4569,195 @@
 "            <li>
 "              <div>
 "                Maintenance fixes.
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          <span class="library"><a href="/libs/predef/">Predef</a>:</span>
+"          <ul>
+"            <li>
+"              <div>
+"                Improved Windows Universal Platform detection. (from James E. King,
+"                III)
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Add detection for CloudABI with cloudlibc. (from James E. King, III)
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Various other bug fixes.
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          <span class="library"><a href="/libs/regex/">Regex</a>:</span>
+"          <ul>
+"            <li>
+"              <div>
+"                Bug fixes:
+"                <ul>
+"                  <li>
+"                    <div>
+"                      Numerous small fixes for security issues discovered by de-fuzzing.
+"                    </div>
+"                  </li>
+"                </ul>
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          <span class="library"><a href="/libs/stacktrace/">Stacktrace</a>:</span>
+"          <ul>
+"            <li>
+"              <div>
+"                Now works out-of-the-box on MinGW-w64.
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Now works on MinGW (without <code><span class="special">-</span><span class="identifier">w64</span></code>) if <code><span class="identifier">libbacktrace</span></code>
+"                is properly installed. See "MinGW specific notes" section
+"                in documentation for more info.
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          <span class="library"><a href="/libs/thread/">Thread</a>:</span>
+"          <ul>
+"            <li>
+"              <div>
+"                Bugs Fixes
+"                <ul>
+"                  <li>
+"                    <div>
+"                      <a href="http://svn.boost.org/trac/boost/ticket/12323">#12323</a>
+"                      windows - boost/thread/win32/mfc_thread_init.hpp has wrong
+"                      signature for _pRawDllMainOrig
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      <a href="http://svn.boost.org/trac/boost/ticket/12730">#12730</a>
+"                      windows - static threads library is incompatible with MSVC
+"                      2017 RC
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      <a href="http://svn.boost.org/trac/boost/ticket/12976">#12976</a>
+"                      Boost Thread Executors documentation mistakes
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      <a href="http://svn.boost.org/trac/boost/ticket/12949">#12949</a>
+"                      using sleep_for in a thread context without including boost/thread/thread.hpp
+"                      yields incorrect behaviour when BOOST_THREAD_HAS_CONDATTR_SET_CLOCK_MONOTONIC
+"                      is defined
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      <a href="http://svn.boost.org/trac/boost/ticket/13019">#13019</a>
+"                      ABI compatibility for BOOST_THREAD_PROVIDES_INTERRUPTIONS incomplete
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      <a href="http://svn.boost.org/trac/boost/ticket/13069">#13069</a>
+"                      Boost unit test "sync_pq_multi_thread_p_lib.exe"
+"                      hung in thread library
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      <a href="http://svn.boost.org/trac/boost/ticket/13163">#13163</a>
+"                      boost::detail::heap_new does not have a variadic variant
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      <a href="http://svn.boost.org/trac/boost/ticket/13226">#13226</a>
+"                      getpagesize() is deprecated since 199506L
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      <a href="https://github.com/boostorg/thread/issues/132">#132</a>
+"                      VS 2017.4 Preview deadlocks on Test 10964
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      <a href="https://github.com/boostorg/thread/issues/133">#133</a>
+"                      windows - Spurious timing test failures on windows
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      <a href="https://github.com/boostorg/thread/issues/134">#134</a>
+"                      VS 2017.4 Preview deadlock in sync_pq_multi_thread_p_lib.exe
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      <a href="https://github.com/boostorg/thread/issues/135">#135</a>
+"                      VS 2017.4 Preview test_scheduled_tp_p.exe deadlock
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      <a href="https://github.com/boostorg/thread/issues/136">#136</a>
+"                      VS 2017.4 Preview test_scheduler_p.exe deadlock
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      <a href="https://github.com/boostorg/thread/issues/137">#137</a>
+"                      VS 2017.4 Preview executor_ex.exe deadlock
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      <a href="https://github.com/boostorg/thread/issues/143">#143</a>
+"                      Failures on msvc-12.0
+"                    </div>
+"                  </li>
+"                  <li>
+"                    <div>
+"                      <a href="https://github.com/boostorg/thread/issues/145">#145</a>
+"                      Clang build error with BOOST_THREAD_ATTRIBUTE_MAY_ALIAS
+"                    </div>
+"                  </li>
+"                </ul>
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                New Experimental Feature
+"                <ul>
+"                  <li>
+"                    <div>
+"                      <a href="https://github.com/boostorg/thread/issues/116">#116</a>
+"                      [Proposal] Add APIs for deferred set_value/exception
+"                    </div>
+"                  </li>
+"                </ul>
 "              </div>
 "            </li>
 "          </ul>
@@ -4398,14 +4818,6 @@
 "                  </li>
 "                  <li>
 "                    <div>
-"                      <a href="https://svn.boost.org/trac10/ticket/11483">11483</a>
-"                      Invalid <code><span class="identifier">string_generator</span></code>
-"                      inputs now throw <code><span class="identifier">std</span><span class="special">::</span><span class="identifier">invalid_argument</span></code>
-"                      instead of <code><span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span></code>.
-"                    </div>
-"                  </li>
-"                  <li>
-"                    <div>
 "                      <a href="https://svn.boost.org/trac10/ticket/10665">10665</a>
 "                      <code><span class="identifier">name_generator</span><span class="special">::</span><span class="keyword">operator</span><span class="special">()</span></code> is now const, matching docs.
 "                    </div>
@@ -4425,12 +4837,484 @@
 "      </li>
 "      <li>
 "        <div>
-"          <em>TODO</em>
+"          <span class="library"><a href="/libs/variant/">Variant</a>:</span>
+"          <ul>
+"            <li>
+"              <div>
+"                <code><span class="identifier">boost</span><span class="special">::</span><span class="identifier">apply_visitor</span></code> now does perfect
+"                forwarding of visitables <a href="https://svn.boost.org/trac/boost/ticket/6971">#6971</a>. Great thanks to Levon Tarakchyan
+"                for implementing this feature.
+"              </div>
+"            </li>
+"          </ul>
 "        </div>
 "      </li>
 "    </ul>
 "  </div>
 "  <div id="version_1_66_0.compilers_tested">
+"    <h3><span class="link">Compilers Tested</span></h3>
+"    <p>
+"      Boost's primary test compilers are:
+"    </p>
+"    <ul>
+"      <li>
+"        <div>
+"          Linux:
+"          <ul>
+"            <li>
+"              <div>
+"                Clang: 3.0, 4.0.1, 5.0.1
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Clang, C++0x: 3.0
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Clang, C++11: 3.0, 3.1, 3.2, 3.3, 3.4, 4.0.1, 5.0.1
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Clang, C++14: 3.5.0, 3.6.0, 3.7.1, 3.8.0, 3.9.1, 4.0.0, 4.0.1, 5.0.1
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Clang, C++17: 5.0.1
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                GCC: 4.4.7, 4.5.3, 4.6.3, 4.7.2, 5.4.0, 7.2.0
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                GCC, C++0x: 4.4.7
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                GCC, C++11: 4.7.2, 4.7.3, 4.8.5, 4.9.4, 6.4.0, 7.1.0, 7.2.0
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                GCC, C++14: 5.4.1, 6.3.0, 6.4.0, 7.1.0, 7.2.0, 7.2.1
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                GCC, C++17: 7.2.0
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Intel: 18.0
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          OS X:
+"          <ul>
+"            <li>
+"              <div>
+"                Clang: 9.0.0
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Clang, C++11: 9.0.0
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Clang, C++14: 9.0.0
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Clang, C++1z: 9.0.0
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          Windows:
+"          <ul>
+"            <li>
+"              <div>
+"                GCC: 3.4.5, 4.1.2, 4.2.4, 4.3.3, 4.4.0, 4.5.4
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                GCC, C++0x: 4.6.4
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                GCC, C++11: 4.7.3
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Visual C++: 7.1, 8.0, 9.0, 10.0, 11.0, 12.0, 14.0, 14.1
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          Android:
+"          <ul>
+"            <li>
+"              <div>
+"                Clang: 3.6, 3.7, 3.8
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                GCC: 4.9, 5.4
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                GCC, C++14: 6.2
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          FreeBSD:
+"          <ul>
+"            <li>
+"              <div>
+"                Clang: 4.0.0
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Clang, C++11: 4.0.0
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Clang, C++14: 4.0.0
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Clang, C++1z: 4.0.0
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          QNX:
+"          <ul>
+"            <li>
+"              <div>
+"                QCC, C++0x: 4.4.2
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                QCC, C++11: 4.7.3
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"    </ul>
+"    <p>
+"      Boost's additional test compilers include:
+"    </p>
+"    <ul>
+"      <li>
+"        <div>
+"          Linux:
+"          <ul>
+"            <li>
+"              <div>
+"                Clang: 3.0, 3.8.1, 4.0.1, 5.0.1
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Clang, C++0x: 3.0
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Clang, C++11: 3.0, 3.1, 3.2, 3.3, 3.4, 4.0.1, 5.0.1
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Clang, C++14: 3.5.0, 3.6.0, 3.7.1, 3.8.0, 3.9.1, 4.0.0, 4.0.1, 5.0.1
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Clang, C++17: 5.0.1
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                GCC: 4.4.7, 4.5.3, 4.6.3, 4.7.2, 5.4.0, 7.2.0
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                GCC, C++0x: 4.4.7
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                GCC, C++11: 4.7.2, 4.7.3, 4.8.5, 4.9.4, 5.4.0, 6.4.0, 7.1.0, 7.2.0
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                GCC, C++14: 5.4.1, 6.3.0, 6.4.0, 7.1.0, 7.2.0, 7.2.1, 8.0.0
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                GCC, C++17: 7.2.0
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Intel: 18.0
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          OS X:
+"          <ul>
+"            <li>
+"              <div>
+"                Clang: 9.0.0
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Clang, C++11: 9.0.0
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Clang, C++14: 9.0.0
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Clang, C++1z: 9.0.0
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          Windows:
+"          <ul>
+"            <li>
+"              <div>
+"                GCC: 3.4.5, 4.1.2, 4.2.4, 4.3.3, 4.4.0, 4.5.4
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                GCC, C++0x: 4.6.4
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                GCC, C++11: 4.7.3, 4.8.1, 4.9.3
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                GCC, C++14: 5.1.0, 5.2.0, 5.3.0, 6.1.0, 6.2.0, 6.3.0, 6.4.0, 7.1.0
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Visual C++: 7.1, 8.0, 9.0, 10.0, 11.0, 12.0, 14.0, 14.1
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          Android:
+"          <ul>
+"            <li>
+"              <div>
+"                Clang: 3.6, 3.7, 3.8
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                GCC: 4.9, 5.4
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                GCC, C++14: 6.2
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          FreeBSD:
+"          <ul>
+"            <li>
+"              <div>
+"                Clang: 4.0.0
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Clang, C++11: 4.0.0
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Clang, C++14: 4.0.0
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Clang, C++1z: 4.0.0
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          QNX:
+"          <ul>
+"            <li>
+"              <div>
+"                QCC, C++0x: 4.4.2
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                QCC, C++11: 4.7.3
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"    </ul>
+"  </div>
+"  <div id="version_1_66_0.acknowledgements">
+"    <h3><span class="link">Acknowledgements</span></h3>
+"    <p>
+"      <a href="/users/people/beman_dawes.html">Beman Dawes</a>, Daniel James,
+"      Vladimir Prus and Marshall Clow managed this release.
+"    </p>
+"  </div>
+"
+-hash
+"3288c0fc455e8ee3c342cd5e1963272c67262aca25b439907e992bb5a04f43f2
+-id
+"version_1_66_0
+-notice_url
+-notice_xml
+-pub_date
+-purpose_xml
+"
+"      New Libraries: Beast, CallableTraits, Mp11. Updated Libraries: Asio, Atomic,
+"      DateTime, Fiber, Format, Fusion, Geometry, Iterator, Log, Multi-index Containers,
+"      Optional, PolyCollection, Predef, Stacktrace, Thread, Utility, Uuid, Variant.
+"
+-title_xml
+"Version 1.66.0
+)
+(feed/history/boost_1_67_0.qbk
+-description_xhtml
+"
+"
+"
+"  <div id="version_1_67_0.new_libraries">
+"    <h3><span class="link">New Libraries</span></h3>
+"    <ul>
+"      <li>
+"        <div>
+"          <em>TODO</em>
+"        </div>
+"      </li>
+"    </ul>
+"  </div>
+"  <div id="version_1_67_0.updated_libraries">
+"    <h3><span class="link">Updated Libraries</span></h3>
+"    <ul>
+"      <li>
+"        <div>
+"          <span class="library"><a href="/libs/multi_index/index.html">Multi-index Containers</a>:</span>
+"          <ul>
+"            <li>
+"              <div>
+"                Elements with overloaded <code><span class="keyword">operator</span><span class="special">&amp;</span></code> are now fully accepted (ticket
+"                <a href="https://svn.boost.org/trac/boost/ticket/13307">#13307</a>). Thanks to Daniel Frey for his updating <a href="/libs/utility/operators.htm#deref">Boost.Operators</a>
+"                to help fix this issue.
+"              </div>
+"            </li>
+"            <li>
+"              <div>
+"                Avoided usage of <code><span class="identifier">std</span><span class="special">::</span><span class="identifier">allocator</span></code>
+"                members deprecated in C++17. Contributed by Daniela Engert.
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          <span class="library"><a href="/libs/poly_collection/">PolyCollection</a>:</span>
+"          <ul>
+"            <li>
+"              <div>
+"                Maintenance fixes.
+"              </div>
+"            </li>
+"          </ul>
+"        </div>
+"      </li>
+"      <li>
+"        <div>
+"          <em>TODO</em>
+"        </div>
+"      </li>
+"    </ul>
+"  </div>
+"  <div id="version_1_67_0.compilers_tested">
 "    <h3><span class="link">Compilers Tested</span></h3>
 "    <p>
 "      Boost's primary test compilers are:
@@ -4453,7 +5337,7 @@
 "      </li>
 "    </ul>
 "  </div>
-"  <div id="version_1_66_0.acknowledgements">
+"  <div id="version_1_67_0.acknowledgements">
 "    <h3><span class="link">Acknowledgements</span></h3>
 "    <p>
 "      <em>TODO</em>
@@ -4461,9 +5345,9 @@
 "  </div>
 "
 -hash
-"98c441b4e87a4c9d7af09fd8831b784636be2737bcec60c1db2005d176bcaa2c
+"a6331558f0cdcf3af27cb5292ecbb3d2d9d00a18a17a37a4021dcb644072e511
 -id
-"version_1_66_0
+"version_1_67_0
 -notice_url
 -notice_xml
 -pub_date
@@ -4472,5 +5356,5 @@
 "      New Libraries: Updated Libraries:
 "
 -title_xml
-"Version 1.66.0
+"Version 1.67.0
 )

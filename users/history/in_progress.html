@@ -32,7 +32,7 @@
 
             <div class="section-body">
               <h2><span class=
-              "news-title">Version 1.66.0</span></h2>
+              "news-title">Version 1.67.0</span></h2>
 
               <p><span class=news-date">In Progress</span></p>
 
@@ -40,309 +40,34 @@
                 <div class="description">
 
 
-  <div id="version_1_66_0.new_libraries">
+  <div id="version_1_67_0.new_libraries">
     <h3><span class="link">New Libraries</span></h3>
     <ul>
       <li>
         <div>
-          <span class="library"><a href="/doc/libs/master/libs/beast/">Beast</a>:</span>
-  Portable HTTP, WebSocket,
-          and network operations using only C++11 and Boost.Asio, from Vinnie Falco.
-        </div>
-      </li>
-      <li>
-        <div>
-          <span class="library"><a href="/doc/libs/master/libs/callable_traits/">CallableTraits</a>:</span>
-  A spiritual
-          successor to Boost.FunctionTypes, Boost.CallableTraits is a header-only
-          C++11 library for the compile-time inspection and manipulation of all 'callable'
-          types. Additional support for C++17 features, from Barrett Adair.
-        </div>
-      </li>
-      <li>
-        <div>
-          <span class="library"><a href="/doc/libs/master/libs/mp11/">Mp11</a>:</span>
-  Simple C++11 metaprogramming
-          library, from Peter Dimov.
+          <em>TODO</em>
         </div>
       </li>
     </ul>
   </div>
-  <div id="version_1_66_0.updated_libraries">
+  <div id="version_1_67_0.updated_libraries">
     <h3><span class="link">Updated Libraries</span></h3>
     <ul>
-      <li>
-        <div>
-          <span class="library"><a href="/doc/libs/master/libs/atomic/">Atomic</a>:</span>
-          <ul>
-            <li>
-              <div>
-                Implemented a set of experimental extended atomic operations for
-                integral types:
-                <ul>
-                  <li>
-                    <div>
-                      <code><span class="identifier">fetch_negate</span></code>,
-                      <code><span class="identifier">fetch_complement</span></code>
-                      - atomically replaces the value with a negated or binary complemented
-                      value and returns the original value
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <code><span class="identifier">opaque_</span><span class="special">&lt;</span><span class="identifier">op</span><span class="special">&gt;</span></code>
-                      - equivalent to <code><span class="identifier">fetch_</span><span class="special">&lt;</span><span class="identifier">op</span><span class="special">&gt;</span></code> except that it doesn't
-                      return the original value
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <code><span class="special">&lt;</span><span class="identifier">op</span><span class="special">&gt;</span><span class="identifier">_and_test</span></code>
-                      - atomically applies <code><span class="special">&lt;</span><span class="identifier">op</span><span class="special">&gt;</span></code>
-                      and returns <code><span class="keyword">true</span></code>
-                      if the result is zero
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <code><span class="identifier">bit_test_and_set</span></code>,
-                      <code><span class="identifier">bit_test_and_reset</span></code>,
-                      <code><span class="identifier">bit_test_and_complement</span></code>
-                      - atomically sets, resets or complements the specified bit
-                      and returns the original value of the bit
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div>
-                Following C++17 (<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0558r1.pdf">P0558R1</a>),
-                arithmetic operations for pointers to non-object types are no longer
-                provided.
-              </div>
-            </li>
-            <li>
-              <div>
-                Also following C++17 exposed <code><span class="identifier">atomic</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;::</span><span class="identifier">value_type</span></code>
-                and <code><span class="identifier">atomic</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;::</span><span class="identifier">difference_type</span></code> member typedefs,
-                where applicable, to the user's code.
-              </div>
-            </li>
-            <li>
-              <div>
-                Improved compatibility with gcc 7. In particular, using 128-bit operations
-                on x86-64 should no longer require linking with libatomic (the compiler-supplied
-                library).
-              </div>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div>
-          <span class="library"><a href="/doc/libs/master/libs/date_time/">DateTime</a>:</span>
-          <ul>
-            <li>
-              <div>
-                The library has been converted to use Boost.WinAPI as the abstraction
-                layer for Windows SDK.
-              </div>
-            </li>
-            <li>
-              <div>
-                Fixed an integral overflow that could cause incorrect results when
-                adding or subtracting many years from a date (see <a href="https://stackoverflow.com/questions/45537280/boost-datetime-issue-with-adding-long-year-durations">here</a>).
-              </div>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div>
-          <span class="library"><a href="/doc/libs/master/libs/format/">Format</a>:</span>
-          <ul>
-            <li>
-              <div>
-                Improvements:
-                <ul>
-                  <li>
-                    <div>
-                      Accept new conversion specifiers:
-                      <ul>
-                        <li>
-                          <div>
-                            <a href="https://github.com/boostorg/format/pull/41"><code><span class="identifier">a</span></code></a>: sets flags
-                            <code><span class="identifier">fixed</span> <span class="special">|</span> <span class="identifier">scientific</span></code>
-                            (i.e. <code><span class="identifier">hexfloat</span></code>)
-                          </div>
-                        </li>
-                        <li>
-                          <div>
-                            <a href="https://github.com/boostorg/format/pull/43"><code><span class="identifier">b</span></code></a>: sets flag
-                            <code><span class="identifier">boolalpha</span></code>
-                          </div>
-                        </li>
-                        <li>
-                          <div>
-                            <a href="https://github.com/boostorg/format/pull/41"><code><span class="identifier">A</span></code></a>: same as
-                            <code><span class="identifier">a</span></code> plus
-                            flag <code><span class="identifier">uppercase</span></code>
-                          </div>
-                        </li>
-                        <li>
-                          <div>
-                            <a href="https://github.com/boostorg/format/pull/41"><code><span class="identifier">F</span></code></a>: same as
-                            <code><span class="identifier">f</span></code> plus
-                            flag <code><span class="identifier">uppercase</span></code>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <a href="https://github.com/boostorg/format/pull/42">42</a>
-                      Accept new argument types <code><span class="identifier">j</span></code>
-                      and <code><span class="identifier">z</span></code> from
-                      ISO C99 (parsed and ignored like all others).
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <a href="https://github.com/boostorg/format/pull/44">44</a>
-                      Accept new argument types <code><span class="identifier">I</span></code>,
-                      <code><span class="identifier">I32</span></code>, <code><span class="identifier">I64</span></code>, and <code><span class="identifier">w</span></code>
-                      from Microsoft (parsed and ignored like all others).
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <a href="https://github.com/boostorg/format/issues/33">33</a>
-                      Added a development tool called <code><span class="identifier">format_matrix</span></code>
-                      that exercises as many different combinations of format strings
-                      as possible and logs them to a file:
-                      <ul>
-                        <li>
-                          <div>
-                            helps prevent regressions in between boost releases
-                          </div>
-                        </li>
-                        <li>
-                          <div>
-                            allows for comparison against <code><span class="identifier">snprintf</span></code>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div>
-                Bugfixes:
-                <ul>
-                  <li>
-                    <div>
-                      <a href="https://svn.boost.org/trac10/ticket/4636">4636</a>
-                      Explicit clamping provided to allow MSVC /RTCc to succeed
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <a href="https://svn.boost.org/trac10/ticket/7477">7477</a>
-                      Fix compatibility with MSVC /Za
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <a href="https://svn.boost.org/trac10/ticket/10324">10324</a>
-                      Const-correct cast issue resolved
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <a href="https://svn.boost.org/trac10/ticket/11632">11632</a>
-                      Fix <code><span class="special">-</span><span class="identifier">fsanitize</span><span class="special">=</span><span class="identifier">undefined</span></code>
-                      issue in <code><span class="identifier">alt_sstream</span><span class="special">.</span><span class="identifier">hpp</span></code>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div>
-          <span class="library"><a href="/doc/libs/master/libs/iterator/">Iterator</a>:</span>
-          <ul>
-            <li>
-              <div>
-                <code><span class="identifier">next</span><span class="special">()</span></code>/<code><span class="identifier">prior</span><span class="special">()</span></code>
-                functions now support user's iterators that don't specify nested
-                types such as <code><span class="identifier">iterator_category</span></code>,
-                <code><span class="identifier">difference_type</span></code>,
-                etc. and instead specialize <code><span class="identifier">std</span><span class="special">::</span><span class="identifier">iterator_traits</span></code>
-                to define those types. The compiler must support C++17-compatible
-                <code><span class="identifier">std</span><span class="special">::</span><span class="identifier">iterator_traits</span></code> for this to work.
-              </div>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div>
-          <span class="library"><a href="/doc/libs/master/libs/log/">Log</a>:</span>
-          <ul>
-            <li>
-              <div>
-                Bug fixes:
-                <ul>
-                  <li>
-                    <div>
-                      Fixed a bug in <code><span class="identifier">file_collector</span><span class="special">::</span><span class="identifier">scan_for_files</span></code>
-                      that could cause incorrectly named log files in the target
-                      directory after the user's application restart.
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div>
-                See <a href="/doc/libs/master/libs/log/doc/html/log/changelog.html">changelog</a>
-                for more details.
-              </div>
-            </li>
-          </ul>
-        </div>
-      </li>
       <li>
         <div>
           <span class="library"><a href="/doc/libs/master/libs/multi_index/index.html">Multi-index Containers</a>:</span>
           <ul>
             <li>
               <div>
-                Made <code><span class="identifier">modify</span></code> and
-                <code><span class="identifier">modify_key</span></code> more robust
-                so that the modified element is erased if the modifier throws or
-                the rollback functor does not properly restore the element (full
-                discussion at ticket <a href="https://svn.boost.org/trac/boost/ticket/12542">#12542</a>). This is technically backwards
-                incompatible; for instance, the following code:
-              </div>
-<pre><span class="identifier">c</span><span class="special">.</span><span class="identifier">modify</span><span class="special">(</span><span class="identifier">c</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),[](</span><span class="keyword">auto</span><span class="special">&amp;){</span><span class="keyword">throw</span> <span class="number">0</span><span class="special">;});</span>
-</pre>
-              <div>
-                keeps the container <code><span class="identifier">c</span></code>
-                untouched in former versions of Boost whereas now <code><span class="identifier">c</span><span class="special">.</span><span class="identifier">begin</span><span class="special">()</span></code> is erased. Thanks to Jon Kalb for
-                raising the issue.
+                Elements with overloaded <code><span class="keyword">operator</span><span class="special">&amp;</span></code> are now fully accepted (ticket
+                <a href="https://svn.boost.org/trac/boost/ticket/13307">#13307</a>). Thanks to Daniel Frey for his updating <a href="/doc/libs/master/libs/utility/operators.htm#deref">Boost.Operators</a>
+                to help fix this issue.
               </div>
             </li>
             <li>
               <div>
-                Maintenance fixes.
+                Avoided usage of <code><span class="identifier">std</span><span class="special">::</span><span class="identifier">allocator</span></code>
+                members deprecated in C++17. Contributed by Daniela Engert.
               </div>
             </li>
           </ul>
@@ -354,113 +79,7 @@
           <ul>
             <li>
               <div>
-                Boost.PolyCollection has been backported to GCC 4.8-9. In the case
-                of GCC 4.8, there are some limitations coming from deficiencies in
-                the version of libstdc++-v3 this compiler uses:
-                <ul>
-                  <li>
-                    <div>
-                      Stateful allocators are not properly supported.
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      Allocator-extended move construction decays to allocator-extended
-                      copy construction.
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      Copy construction crashes if an exception is thrown during
-                      element copying.
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div>
                 Maintenance fixes.
-              </div>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div>
-          <span class="library"><a href="/doc/libs/master/libs/utility/">Utility</a>:</span>
-          <ul>
-            <li>
-              <div>
-                <code><span class="identifier">boost</span><span class="special">/</span><span class="identifier">next_prior</span><span class="special">.</span><span class="identifier">hpp</span></code> has been moved to Boost.Iterator.
-                No changes needed to the user's code.
-              </div>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div>
-          <span class="library"><a href="/doc/libs/master/libs/uuid/">Uuid</a>:</span>
-          <ul>
-            <li>
-              <div>
-                Improvements:
-                <ul>
-                  <li>
-                    <div>
-                      <a href="https://github.com/boostorg/uuid/issues/26">26</a>
-                      Refactored <code><span class="identifier">name_generator</span></code>
-                      to support a configurable hash provider concept and provide
-                      an optional MD5 hash implementation per RFC-4122. This will
-                      make it easier to support whatever becomes the next standard
-                      hash algorithm.
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <a href="https://github.com/boostorg/uuid/issues/34">34</a>
-                      Added RFC-4122 namespaces in <code><span class="identifier">boost</span><span class="special">::</span><span class="identifier">uuids</span><span class="special">::</span><span class="identifier">ns</span></code>.
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div>
-                Bugfixes:
-                <ul>
-                  <li>
-                    <div>
-                      <a href="https://svn.boost.org/trac10/ticket/8630">8630</a>
-                      <a href="https://svn.boost.org/trac10/ticket/11482">11482</a>
-                      <a href="https://svn.boost.org/trac10/ticket/12253">12253</a>
-                      Various deficiencies in <code><span class="identifier">string_generator</span></code>
-                      were resolved.
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <a href="https://svn.boost.org/trac10/ticket/11483">11483</a>
-                      Invalid <code><span class="identifier">string_generator</span></code>
-                      inputs now throw <code><span class="identifier">std</span><span class="special">::</span><span class="identifier">invalid_argument</span></code>
-                      instead of <code><span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span></code>.
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <a href="https://svn.boost.org/trac10/ticket/10665">10665</a>
-                      <code><span class="identifier">name_generator</span><span class="special">::</span><span class="keyword">operator</span><span class="special">()</span></code> is now const, matching docs.
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      Detail headers were moved into the detail subdirectory. No
-                      changes needed to user's code, however you may get build warnings
-                      if you use the old header location.
-                    </div>
-                  </li>
-                </ul>
               </div>
             </li>
           </ul>
@@ -473,7 +92,7 @@
       </li>
     </ul>
   </div>
-  <div id="version_1_66_0.compilers_tested">
+  <div id="version_1_67_0.compilers_tested">
     <h3><span class="link">Compilers Tested</span></h3>
     <p>
       Boost's primary test compilers are:
@@ -496,7 +115,7 @@
       </li>
     </ul>
   </div>
-  <div id="version_1_66_0.acknowledgements">
+  <div id="version_1_67_0.acknowledgements">
     <h3><span class="link">Acknowledgements</span></h3>
     <p>
       <em>TODO</em>
