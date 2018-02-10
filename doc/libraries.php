@@ -71,7 +71,7 @@ class LibraryPage {
 
         $this->view_value = $this->params['view'];
         if (strpos($this->view_value, 'filtered_') === 0) {
-            $this->filter_value = substr($this->view_value, strlen('filtered_'));
+            $this->filter_value = substr($this->view_value, strlen('filtered_')) ?: '';
 
             if (!array_key_exists($this->filter_value, self::$filter_fields)) {
                 BoostWeb::throw_http_error(400, "Malformed request",
@@ -81,13 +81,15 @@ class LibraryPage {
                 BoostWeb::throw_http_error(410, 'Filter field no longer supported.',
                     "Filter field {$this->filter_value} is no longer supported");
             }
+            $this->view_value = 'all';
         }
         else if (strpos($this->view_value, 'category_') === 0) {
-            $this->category_value = substr($this->view_value, strlen('category_'));
+            $this->category_value = substr($this->view_value, strlen('category_')) ?: '';
             if(!array_key_exists($this->category_value, $this->categories)) {
                 BoostWeb::throw_http_error(400, "Invalid category",
                     "Invalid category: {$this->category_value}");
             }
+            $this->view_value = 'all';
         }
         else {
             if (!array_key_exists($this->view_value, self::$view_fields)) {
@@ -395,6 +397,7 @@ if (!is_dir($library_page->documentation_page->documentation_dir())) {
               foreach ($library_page->categorized_libraries() as $name => $category) {
                 if(count($category['libraries'])) {
                   echo '<h3>';
+                  echo "\n";
                   $library_page->category_link($name);
                   echo '</h3>';
                   echo '<ul>';
@@ -404,8 +407,10 @@ if (!is_dir($library_page->documentation_page->documentation_dir())) {
                     echo ': ';
                     $library_page->libdescription($lib);
                     echo '</li>';
+                    echo "\n";
                   }
                   echo '</ul>';
+                  echo "\n";
                 }
               }
               ?>
